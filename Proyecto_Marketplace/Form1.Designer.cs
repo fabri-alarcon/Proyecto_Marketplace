@@ -37,9 +37,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(318, 120);
+            button1.Location = new Point(363, 160);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(159, 32);
+            button1.Size = new Size(182, 43);
             button1.TabIndex = 0;
             button1.Text = "iniciar sesion";
             button1.UseVisualStyleBackColor = true;
@@ -47,18 +48,20 @@
             // 
             // button2
             // 
-            button2.Location = new Point(318, 158);
+            button2.Location = new Point(363, 211);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(159, 32);
+            button2.Size = new Size(182, 43);
             button2.TabIndex = 1;
             button2.Text = "registrarse";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(318, 227);
+            button3.Location = new Point(363, 303);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(159, 32);
+            button3.Size = new Size(182, 43);
             button3.TabIndex = 2;
             button3.Text = "Continuar como invitado";
             button3.UseVisualStyleBackColor = true;
@@ -68,22 +71,23 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Black", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(225, 39);
+            label1.Location = new Point(257, 52);
             label1.Name = "label1";
-            label1.Size = new Size(339, 41);
+            label1.Size = new Size(436, 52);
             label1.TabIndex = 3;
             label1.Text = "Service and Product";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(742, 273);
+            ClientSize = new Size(1002, 457);
             Controls.Add(label1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
