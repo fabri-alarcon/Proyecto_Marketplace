@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormApp));
             botonBuscar = new Button();
             textBoxBusqueda = new TextBox();
             botonPerfil = new Button();
             button1 = new Button();
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pictureBox2 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // botonBuscar
@@ -54,7 +55,7 @@
             // 
             // botonPerfil
             // 
-            botonPerfil.Location = new Point(18, 69);
+            botonPerfil.Location = new Point(18, 82);
             botonPerfil.Name = "botonPerfil";
             botonPerfil.Size = new Size(75, 23);
             botonPerfil.TabIndex = 2;
@@ -63,20 +64,22 @@
             // 
             // button1
             // 
-            button1.Location = new Point(18, 98);
+            button1.Location = new Point(18, 111);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 3;
             button1.Text = "Publicar";
             button1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pictureBox2
             // 
-            pictureBox1.Location = new Point(18, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(73, 51);
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(18, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(75, 64);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
             // 
             // FormApp
             // 
@@ -84,14 +87,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
             ClientSize = new Size(732, 390);
-            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             Controls.Add(button1);
             Controls.Add(botonPerfil);
             Controls.Add(textBoxBusqueda);
             Controls.Add(botonBuscar);
             Name = "FormApp";
-            Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Text = "Services and Products";
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -102,6 +105,6 @@
         private TextBox textBoxBusqueda;
         private Button botonPerfil;
         private Button button1;
-        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

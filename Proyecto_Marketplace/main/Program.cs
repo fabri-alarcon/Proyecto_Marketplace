@@ -1,4 +1,6 @@
-namespace Proyecto_Marketplace
+using Proyecto_Marketplace.main;
+
+namespace Proyecto_Marketplace.main
 {
     internal static class Program
     {

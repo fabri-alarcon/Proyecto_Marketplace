@@ -69,11 +69,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Black", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(120, 36);
+            label1.Location = new Point(106, 37);
             label1.Name = "label1";
-            label1.Size = new Size(339, 41);
+            label1.Size = new Size(375, 41);
             label1.TabIndex = 3;
-            label1.Text = "Service and Product";
+            label1.Text = "Services and Products";
             // 
             // FormLogin
             // 
@@ -86,7 +86,7 @@
             Controls.Add(botonRegistrarse);
             Controls.Add(botonIniciarSesion);
             Name = "FormLogin";
-            Text = "Form1";
+            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }
