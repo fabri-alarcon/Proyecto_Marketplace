@@ -1,21 +1,31 @@
 ﻿using Proyecto_Marketplace.clases;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Proyecto_Marketplace.forms;
+using System.Security.Policy;
+
 
 namespace Proyecto_Marketplace
 {
     public partial class FormApp : Form
     {
-        public FormApp()
+        private Usuario usuarioActual;
+        public FormApp(Usuario usuario)
         {
             InitializeComponent();
+
+            // Si usuario es null, se asigna un nuevo Usuario llamado ‘Invitado
+            usuarioActual = usuario ?? new Usuario("Invitado");
+
+            // Configuración visual de la ventana
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(600, 400);
+
+            pictureBox2.ImageLocation = usuarioActual.obtenerRutaFotoPerfil();
+
+
+
 
             //Control de tamaño de la ventana formapp
             this.FormBorderStyle = FormBorderStyle.FixedSingle; // Bordes fijos
@@ -35,7 +45,7 @@ namespace Proyecto_Marketplace
             FlowLayoutPanel flowPanel = new FlowLayoutPanel();
             flowPanel.Width = 760;  // Ancho del área disponible
             flowPanel.Height = 500; // Altura del área disponible
-            flowPanel.Left = 90;    // Distancia desde el borde izquierdo de la ventana
+            flowPanel.Left = 110;    // Distancia desde el borde izquierdo de la ventana
             flowPanel.Top = 80;     // Distancia desde el borde superior de la ventana (por ejemplo, debajo de un menú o header)
             flowPanel.AutoScroll = true;
             flowPanel.Margin = new Padding(50);
@@ -52,7 +62,7 @@ namespace Proyecto_Marketplace
             Publicacion post2 = new Publicacion("Auriculares Inalámbricos", "232", "fdsfdsf", Image.FromFile("media/auricularesImagen.jpeg"), "43232", "dnsaid", "Vendido");
             Publicacion post3 = new Publicacion("Auriculares Inalámbricos", "232", "fdsfdsf", Image.FromFile("media/auricularesImagen.jpeg"), "43232", "dnsaid", "Pendiente");
             Publicacion post4 = new Publicacion("Auriculares Inalámbricos", "232", "fdsfdsf", Image.FromFile("media/auricularesImagen.jpeg"), "43232", "dnsaid", "Disponible");
-          
+
             listaPublicacion.Add(post1);
             listaPublicacion.Add(post2);
             listaPublicacion.Add(post3);
@@ -70,7 +80,7 @@ namespace Proyecto_Marketplace
                 post.BackColor = Color.White;
                 post.BorderStyle = BorderStyle.FixedSingle;
 
-         // Agregar controles al panel
+                // Agregar controles al panel
 
                 //imagen parametros
                 PictureBox pb = new PictureBox();
@@ -116,7 +126,7 @@ namespace Proyecto_Marketplace
 
 
                 // Agregar controles al panel de la publicación
-                post.Controls.Add(pb); 
+                post.Controls.Add(pb);
                 post.Controls.Add(lblTitulo);
                 post.Controls.Add(lblPrecio);
                 post.Controls.Add(lblEstado);
@@ -125,6 +135,89 @@ namespace Proyecto_Marketplace
                 flowPanel.Controls.Add(post);
             }
 
+
+            //control de invitado o usuario logeado
+            if (usuarioActual.NombreUsuario == "Invitado")
+            {
+                botonCerrarSesion.Visible = false;
+            }
+            else
+            {
+                botonCerrarSesion.Visible = true;
+                botonVolverLogin.Visible = false;
+            }
+
+
+        }
+
+        // Método para actualizar la imagen del PictureBox
+        private void ActualizarFotoPerfil()
+        {
+            if (pictureBox2.Image != null)
+            {
+                pictureBox2.Image.Dispose();
+                pictureBox2.Image = null;
+            }
+
+            // Cargar nueva imagen desde la ruta actual del usuario
+            string ruta = usuarioActual.obtenerRutaFotoPerfil();
+            if (!string.IsNullOrEmpty(ruta) && File.Exists(ruta))
+            {
+                using (var fs = new FileStream(ruta, FileMode.Open, FileAccess.Read))
+                {
+                    pictureBox2.Image = new Bitmap(fs);
+                }
+            }
+        }
+
+
+        private void botonPerfil_Click(object sender, EventArgs e)
+        {
+
+            if (usuarioActual.NombreUsuario == "Invitado")
+            {
+                MessageBox.Show("Inicie sesion para acceder a mas opciones", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                FormProfile ventanaPerfil = new FormProfile(usuarioActual);
+
+                // Suscribirse al evento
+                ventanaPerfil.FotoPerfilCambiada += ActualizarFotoPerfil;
+
+                ventanaPerfil.ShowDialog(); // bloquea el form de app hasta cerrar la ventana principal de la login
+
+                // Después de cerrar el perfil, se guardan los cambios (foto, etc.)
+                RepositorioUsuarios.ActualizarUsuario(usuarioActual);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (usuarioActual.NombreUsuario == "Invitado")
+            {
+                MessageBox.Show("Inicie sesion para acceder a mas opciones", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //else
+            //{
+            //}
+
+        }
+
+        private void botonCerrarSesion_Click(object sender, EventArgs e)
+        {
+            if (usuarioActual.NombreUsuario == "Invitado")
+            {
+                MessageBox.Show("Inicie sesion para acceder a mas opciones", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void botonVolverLogin_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

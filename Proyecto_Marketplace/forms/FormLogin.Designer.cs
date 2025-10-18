@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             botonIniciarSesion = new Button();
             botonRegistrarse = new Button();
             botonContinuarInvitado = new Button();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
+            textUsuario = new TextBox();
+            textContrasenia = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // botonIniciarSesion
             // 
-            botonIniciarSesion.Location = new Point(208, 120);
+            botonIniciarSesion.Location = new Point(396, 142);
             botonIniciarSesion.Name = "botonIniciarSesion";
             botonIniciarSesion.Size = new Size(159, 32);
             botonIniciarSesion.TabIndex = 0;
@@ -46,7 +51,7 @@
             // 
             // botonRegistrarse
             // 
-            botonRegistrarse.Location = new Point(208, 158);
+            botonRegistrarse.Location = new Point(396, 244);
             botonRegistrarse.Name = "botonRegistrarse";
             botonRegistrarse.Size = new Size(159, 32);
             botonRegistrarse.TabIndex = 1;
@@ -56,7 +61,7 @@
             // 
             // botonContinuarInvitado
             // 
-            botonContinuarInvitado.Location = new Point(208, 227);
+            botonContinuarInvitado.Location = new Point(396, 282);
             botonContinuarInvitado.Name = "botonContinuarInvitado";
             botonContinuarInvitado.Size = new Size(159, 32);
             botonContinuarInvitado.TabIndex = 2;
@@ -69,24 +74,54 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Black", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(106, 37);
+            label1.Location = new Point(12, 60);
             label1.Name = "label1";
-            label1.Size = new Size(375, 41);
+            label1.Size = new Size(0, 41);
             label1.TabIndex = 3;
-            label1.Text = "Services and Products";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(18, 29);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(344, 306);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // textUsuario
+            // 
+            textUsuario.Location = new Point(396, 60);
+            textUsuario.Name = "textUsuario";
+            textUsuario.PlaceholderText = "Ingrese Usuario";
+            textUsuario.Size = new Size(159, 23);
+            textUsuario.TabIndex = 5;
+            // 
+            // textContrasenia
+            // 
+            textContrasenia.Location = new Point(396, 99);
+            textContrasenia.Name = "textContrasenia";
+            textContrasenia.PlaceholderText = "Ingrese Contraseña";
+            textContrasenia.Size = new Size(159, 23);
+            textContrasenia.TabIndex = 6;
             // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(128, 128, 255);
+            BackColor = Color.Indigo;
             ClientSize = new Size(584, 361);
+            Controls.Add(textContrasenia);
+            Controls.Add(textUsuario);
+            Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(botonContinuarInvitado);
             Controls.Add(botonRegistrarse);
             Controls.Add(botonIniciarSesion);
             Name = "FormLogin";
             Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -97,5 +132,8 @@
         private Button botonRegistrarse;
         private Button botonContinuarInvitado;
         private Label label1;
+        private PictureBox pictureBox1;
+        private TextBox textUsuario;
+        private TextBox textContrasenia;
     }
 }

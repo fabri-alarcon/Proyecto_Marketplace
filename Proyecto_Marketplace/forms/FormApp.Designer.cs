@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormApp));
             botonBuscar = new Button();
             textBoxBusqueda = new TextBox();
             botonPerfil = new Button();
             button1 = new Button();
             pictureBox2 = new PictureBox();
+            botonCerrarSesion = new Button();
+            botonVolverLogin = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -61,6 +62,7 @@
             botonPerfil.TabIndex = 2;
             botonPerfil.Text = "Perfil";
             botonPerfil.UseVisualStyleBackColor = true;
+            botonPerfil.Click += botonPerfil_Click;
             // 
             // button1
             // 
@@ -70,10 +72,13 @@
             button1.TabIndex = 3;
             button1.Text = "Publicar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.BackgroundImage = Properties.Resources.perfilPredeterminado;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.InitialImage = Properties.Resources.perfilPredeterminado;
             pictureBox2.Location = new Point(18, 12);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(75, 64);
@@ -81,12 +86,34 @@
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
+            // botonCerrarSesion
+            // 
+            botonCerrarSesion.Location = new Point(11, 525);
+            botonCerrarSesion.Name = "botonCerrarSesion";
+            botonCerrarSesion.Size = new Size(90, 24);
+            botonCerrarSesion.TabIndex = 6;
+            botonCerrarSesion.Text = "cerrar sesion";
+            botonCerrarSesion.UseVisualStyleBackColor = true;
+            botonCerrarSesion.Click += botonCerrarSesion_Click;
+            // 
+            // botonVolverLogin
+            // 
+            botonVolverLogin.Location = new Point(12, 525);
+            botonVolverLogin.Name = "botonVolverLogin";
+            botonVolverLogin.Size = new Size(89, 23);
+            botonVolverLogin.TabIndex = 7;
+            botonVolverLogin.Text = "volver";
+            botonVolverLogin.UseVisualStyleBackColor = true;
+            botonVolverLogin.Click += botonVolverLogin_Click;
+            // 
             // FormApp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(128, 128, 255);
-            ClientSize = new Size(732, 390);
+            BackColor = Color.Indigo;
+            ClientSize = new Size(784, 561);
+            Controls.Add(botonVolverLogin);
+            Controls.Add(botonCerrarSesion);
             Controls.Add(pictureBox2);
             Controls.Add(button1);
             Controls.Add(botonPerfil);
@@ -106,5 +133,7 @@
         private Button botonPerfil;
         private Button button1;
         private PictureBox pictureBox2;
+        private Button botonCerrarSesion;
+        private Button botonVolverLogin;
     }
 }
