@@ -74,9 +74,7 @@
             botonCancelarReg.TabIndex = 4;
             botonCancelarReg.Text = "Cancelar";
             botonCancelarReg.UseVisualStyleBackColor = true;
-            //botonCancelarReg.Click += botonCancelarReg_Click;
-            this.botonCancelarReg.Click += new System.EventHandler(this.botonCancelarReg_Click);
-
+            botonCancelarReg.Click += botonCancelarReg_Click;
             // 
             // FormRegistrar
             // 
@@ -90,6 +88,7 @@
             Controls.Add(textRegUsuario);
             Name = "FormRegistrar";
             Text = "FormRegistrar";
+            //Load += FormRegistrar_Load;
             ResumeLayout(false);
             PerformLayout();
         }

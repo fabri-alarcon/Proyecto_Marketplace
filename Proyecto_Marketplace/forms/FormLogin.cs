@@ -45,14 +45,6 @@ namespace Proyecto_Marketplace
             UsuarioLogeado = usuario;
             this.DialogResult = DialogResult.OK;
             this.Close();
-
-
-            // Abrir la ventana principal (o perfil)
-            FormApp ventana = new FormApp(usuario);
-            this.Hide();
-            ventana.ShowDialog();
-            ventana.Show();
-
         }
 
         // Botón para registrar un nuevo usuario
@@ -60,18 +52,13 @@ namespace Proyecto_Marketplace
         {
             FormRegistrar ventanaReg = new FormRegistrar();
             ventanaReg.Show();
-
-
-
         }
 
         private void botonContinuarInvitado_Click(object sender, EventArgs e)
         {
-            Usuario UsuarioActual = new Usuario("Invitado"); // Creo un usuario invitado
-            FormApp ventanaPrincipal = new FormApp(UsuarioActual);  //paso el usuario invitado al formapp
-            this.Hide();                    //oculta de la ventana actual osea login
-            ventanaPrincipal.ShowDialog(); //bloquea el form de login hasta cerrar la ventana principal de la app
-            this.Close();                  //cierra la ventana principal de la app
+            this.UsuarioLogeado = new Usuario("Invitado");
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }   
     }
 }

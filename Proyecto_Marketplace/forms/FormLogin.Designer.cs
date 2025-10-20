@@ -105,6 +105,7 @@
             textContrasenia.PlaceholderText = "Ingrese Contraseña";
             textContrasenia.Size = new Size(159, 23);
             textContrasenia.TabIndex = 6;
+            textContrasenia.UseSystemPasswordChar = true;
             // 
             // FormLogin
             // 

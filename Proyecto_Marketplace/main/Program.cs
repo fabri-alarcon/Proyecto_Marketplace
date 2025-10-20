@@ -2,32 +2,48 @@ using Proyecto_Marketplace.main;
 
 namespace Proyecto_Marketplace.main
 {
-    internal static class Program
+    public static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            // Crear e iniciar el formulario de login
-            using (var loginForm = new FormLogin())
+            // 1. Bucle de control principal (main message loop).
+            while (true)
             {
-                if (loginForm.ShowDialog() == DialogResult.OK)
+                using (FormLogin loginForm = new FormLogin())
                 {
-                    // Mostrar el formulario principal con el usuario autenticado
-                    Application.Run(new FormApp(loginForm.UsuarioLogeado));
-                }
-                else
-                {
-                    Application.Exit();
+                    DialogResult loginResult = loginForm.ShowDialog();
+
+                    if (loginResult == DialogResult.OK)
+                    {
+                        using (FormApp appForm = new FormApp(loginForm.UsuarioLogeado))
+                        {
+                            DialogResult appResult = appForm.ShowDialog();
+
+                            if (appResult == DialogResult.OK)
+                            {
+                                // Usuario cerró sesión => volver al login
+                                continue;
+                            }
+                            else
+                            {
+                                // Usuario cerró app => salir
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Se canceló login o se cerró => salir
+                        break;
+                    }
                 }
             }
-  
+
+            Application.Exit();
         }
     }
 }

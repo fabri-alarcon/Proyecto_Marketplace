@@ -31,7 +31,7 @@
             botonBuscar = new Button();
             textBoxBusqueda = new TextBox();
             botonPerfil = new Button();
-            button1 = new Button();
+            botonPublicar = new Button();
             pictureBox2 = new PictureBox();
             botonCerrarSesion = new Button();
             botonVolverLogin = new Button();
@@ -64,15 +64,15 @@
             botonPerfil.UseVisualStyleBackColor = true;
             botonPerfil.Click += botonPerfil_Click;
             // 
-            // button1
+            // botonPublicar
             // 
-            button1.Location = new Point(18, 111);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 3;
-            button1.Text = "Publicar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            botonPublicar.Location = new Point(18, 111);
+            botonPublicar.Name = "botonPublicar";
+            botonPublicar.Size = new Size(75, 23);
+            botonPublicar.TabIndex = 3;
+            botonPublicar.Text = "Publicar";
+            botonPublicar.UseVisualStyleBackColor = true;
+            botonPublicar.Click += botonPublicar_Click_1;
             // 
             // pictureBox2
             // 
@@ -98,7 +98,7 @@
             // 
             // botonVolverLogin
             // 
-            botonVolverLogin.Location = new Point(12, 525);
+            botonVolverLogin.Location = new Point(11, 526);
             botonVolverLogin.Name = "botonVolverLogin";
             botonVolverLogin.Size = new Size(89, 23);
             botonVolverLogin.TabIndex = 7;
@@ -115,7 +115,7 @@
             Controls.Add(botonVolverLogin);
             Controls.Add(botonCerrarSesion);
             Controls.Add(pictureBox2);
-            Controls.Add(button1);
+            Controls.Add(botonPublicar);
             Controls.Add(botonPerfil);
             Controls.Add(textBoxBusqueda);
             Controls.Add(botonBuscar);
@@ -131,7 +131,7 @@
         private Button botonBuscar;
         private TextBox textBoxBusqueda;
         private Button botonPerfil;
-        private Button button1;
+        private Button botonPublicar;
         private PictureBox pictureBox2;
         private Button botonCerrarSesion;
         private Button botonVolverLogin;

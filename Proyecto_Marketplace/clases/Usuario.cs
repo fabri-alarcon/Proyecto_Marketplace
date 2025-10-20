@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Proyecto_Marketplace.clases
+﻿namespace Proyecto_Marketplace.clases
 {
     public class Usuario 
     {
         private string nombreUsuario;
         private string contraseña;
-        private string email;
+        public string contacto;
         private string RutaFoto;
 
         public string NombreUsuario
@@ -26,12 +19,8 @@ namespace Proyecto_Marketplace.clases
             set { contraseña = value; }
         }
 
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
-
+     
+        
 
 
 
@@ -40,7 +29,7 @@ namespace Proyecto_Marketplace.clases
             nombreUsuario = nombre;
             contraseña = pass;
             RutaFoto = "";
-            Email = "";
+            contacto = "";
         }
 
         public Usuario(string nom)

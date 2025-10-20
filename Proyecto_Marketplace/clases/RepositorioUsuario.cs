@@ -13,7 +13,7 @@ namespace Proyecto_Marketplace.clases
 
         // Lista en memoria para evitar leer el archivo todo el tiempo
         private static List<Usuario> usuariosEnMemoria = null;
-
+        
         // Carga los usuarios desde el archivo si todavía no se cargaron
         private static void CargarSiEsNecesario()
         {
@@ -69,7 +69,8 @@ namespace Proyecto_Marketplace.clases
         {
             CargarSiEsNecesario();
             var existente = BuscarPorNombre(u.NombreUsuario);
-            if (existente == null) return false;
+            if (existente == null) 
+                return false;
 
             existente.Contraseña = u.Contraseña;
             existente.cambiarRutaFotoPerfil(u.obtenerRutaFotoPerfil());

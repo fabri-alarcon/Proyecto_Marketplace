@@ -19,8 +19,11 @@ namespace Proyecto_Marketplace.clases
         public string Estado { get; set; } = null!;
         public string Tipo { get; set; }
 
+        public string UsuarioCreador { get; private set; }
+        public DateTime FechaPublicacion { get; private set; }
+
         // Constructor
-        public Publicacion(string titulo, string precio, string descripcion, Image imagen, string ubicacion, string contacto, string estado)
+        public Publicacion(string titulo, string precio, string descripcion, Image imagen, string ubicacion, string contacto, string estado, string usuario)
             {
                 Titulo = titulo;
                 Precio = precio;
@@ -30,9 +33,11 @@ namespace Proyecto_Marketplace.clases
                 Contacto = contacto;
                 Estado = estado;
                 Tipo = "Producto";
+                UsuarioCreador = usuario;
+                FechaPublicacion = DateTime.Now;
         }
 
-        public Publicacion(string titulo, Image imagen, string descripcion, string ubicacion, string contacto)
+        public Publicacion(string titulo, Image imagen, string descripcion, string ubicacion, string contacto, string usuario)
         {
             Titulo = titulo;
             Imagen = imagen;
@@ -40,6 +45,8 @@ namespace Proyecto_Marketplace.clases
             Ubicacion = ubicacion;
             Contacto = contacto;
             Tipo = "Servicio";
+            UsuarioCreador = usuario;
+            FechaPublicacion = DateTime.Now;
         }
     }
 }
