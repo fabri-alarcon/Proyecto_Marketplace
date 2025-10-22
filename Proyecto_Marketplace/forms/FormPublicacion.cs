@@ -49,7 +49,10 @@ namespace Proyecto_Marketplace.forms
 
         }
 
-       
+        private void botonVolverAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

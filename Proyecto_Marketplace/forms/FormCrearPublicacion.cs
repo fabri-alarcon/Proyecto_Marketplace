@@ -32,6 +32,12 @@ namespace Proyecto_Marketplace.forms
                 MessageBox.Show("El precio debe ser numérico", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            else if(precio <= 0)
+            {
+                MessageBox.Show("El precio debe ser mayor que cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
             if (rutaImagenSeleccionada == null)
             {
@@ -100,6 +106,11 @@ namespace Proyecto_Marketplace.forms
                     MessageBox.Show("Imagen actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void botonVolverAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

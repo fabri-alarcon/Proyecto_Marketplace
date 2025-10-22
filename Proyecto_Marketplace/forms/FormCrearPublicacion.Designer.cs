@@ -148,6 +148,7 @@
             botonVolverAtras.TabIndex = 14;
             botonVolverAtras.Text = "Volver atrás";
             botonVolverAtras.UseVisualStyleBackColor = true;
+            botonVolverAtras.Click += botonVolverAtras_Click;
             // 
             // radioButtonServicio
             // 
@@ -224,7 +225,7 @@
             Controls.Add(label1);
             Name = "FormCrearPublicacion";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormCrearPublicacion";
+            Text = "Crear Publicaciones";
             ((System.ComponentModel.ISupportInitialize)pictureBoxPublicacion).EndInit();
             ResumeLayout(false);
             PerformLayout();

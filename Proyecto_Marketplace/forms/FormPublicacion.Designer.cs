@@ -125,6 +125,7 @@
             botonVolverAtras.TabIndex = 6;
             botonVolverAtras.Text = "volver atrás";
             botonVolverAtras.UseVisualStyleBackColor = true;
+            botonVolverAtras.Click += botonVolverAtras_Click;
             // 
             // label1
             // 
@@ -192,7 +193,7 @@
             MinimizeBox = false;
             Name = "FormPublicacion";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormPublicacion";
+            Text = "Publicacion";
             ((System.ComponentModel.ISupportInitialize)pictureBoxImagenPubli).EndInit();
             ResumeLayout(false);
             PerformLayout();

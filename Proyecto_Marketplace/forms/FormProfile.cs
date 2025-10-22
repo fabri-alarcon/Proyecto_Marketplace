@@ -19,9 +19,7 @@ namespace Proyecto_Marketplace.forms
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new Size(600, 400);
-
+            
             // Al cargar el formulario, se muestra la foto guardada (si tiene)
             this.Load += FormPerfil_Load;
 
@@ -124,9 +122,14 @@ namespace Proyecto_Marketplace.forms
                    "Aviso",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Warning);
-            } 
-            
-            
+            }
+
+
+        }
+
+        private void botonVolverAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
