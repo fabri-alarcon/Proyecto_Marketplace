@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="forms\FormApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\FormCrearPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\FormProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\FormPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\FormRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

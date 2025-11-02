@@ -1,0 +1,17 @@
+[
+  {
+    "contacto": "2",
+    "Rol": "Usuario",
+    "Cuil": "2",
+    "NombreUsuario": "Facu",
+    "Contraseña": "1234"
+  },
+  {
+    "contacto": "22",
+    "Rol": "Admin",
+    "Cuil": "2",
+    "NombreUsuario": "Facu2",
+    "Contraseña": "1234"
+  }
+
+]
