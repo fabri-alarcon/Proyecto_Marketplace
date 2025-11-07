@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-// (Tuve que quitar "using System.Xml;" porque no se usaba)
 namespace Proyecto_Marketplace.clases
 {
     public static class RepositorioUsuarios
@@ -66,10 +65,41 @@ namespace Proyecto_Marketplace.clases
             existente.Contraseña = u.Contraseña;
             existente.contacto = u.contacto;
             existente.Rol = u.Rol;
-            existente.Cuil = u.Cuil; // <-- ESTA LÍNEA FALTABA EN TU CÓDIGO
+            existente.Cuil = u.Cuil;
+            existente.IsEmailVerified = u.IsEmailVerified; // <-- ¡IMPORTANTE! Asegurarnos de guardar esto
             existente.cambiarRutaFotoPerfil(u.obtenerRutaFotoPerfil());
             GuardarTodo();
             return true;
+        }
+
+        // --- ¡NUEVOS MÉTODOS DE VALIDACIÓN! ---
+
+        /// <summary>
+        /// Comprueba si un email ya existe en la base de datos.
+        /// </summary>
+        public static bool ExisteEmail(string email)
+        {
+            CargarSiEsNecesario();
+            // .Any() es más rápido que .FirstOrDefault() para solo comprobar existencia
+            return usuariosEnMemoria.Any(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+        }
+
+        /// <summary>
+        /// Comprueba si un CUIL ya existe en la base de datos.
+        /// </summary>
+        public static bool ExisteCuil(string cuil)
+        {
+            CargarSiEsNecesario();
+            return usuariosEnMemoria.Any(u => u.Cuil == cuil);
+        }
+
+        /// <summary>
+        /// Comprueba si un número de contacto ya existe en la base de datos.
+        /// </summary>
+        public static bool ExisteContacto(string contacto)
+        {
+            CargarSiEsNecesario();
+            return usuariosEnMemoria.Any(u => u.contacto == contacto);
         }
     }
 }

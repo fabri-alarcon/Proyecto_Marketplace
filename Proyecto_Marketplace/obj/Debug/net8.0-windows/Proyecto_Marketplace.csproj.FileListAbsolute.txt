@@ -4,7 +4,12 @@ C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-mast
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.runtimeconfig.json
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.dll
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.pdb
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\MailKit.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\MimeKit.dll
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.AssemblyReference.cache
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.FormApp.resources
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormCrearPublicacion.resources
@@ -12,6 +17,7 @@ C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-mast
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormProfile.resources
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormPublicacion.resources
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormRegistrar.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormVerificacion.resources
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Properties.Resources.resources
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.GenerateResource.cache
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.GeneratedMSBuildEditorConfig.editorconfig
@@ -24,3 +30,4 @@ C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-mast
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.pdb
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.genruntimeconfig.cache
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\ref\Proyecto_Marketplace.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Controls.PublicacionCard.resources

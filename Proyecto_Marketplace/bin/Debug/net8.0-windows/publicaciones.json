@@ -11,7 +11,7 @@
     "Categoria": "Tecnología",
     "Tipo": "Producto",
     "UsuarioCreador": "AdminDemo",
-    "FechaPublicacion": "2025-11-01T22:35:49.9270843-03:00"
+    "FechaPublicacion": "2025-11-02T00:22:45.2510639-03:00"
   },
   {
     "Titulo": "Enanos en venta",
@@ -25,20 +25,34 @@
     "Categoria": "Otros",
     "Tipo": "Producto",
     "UsuarioCreador": "AdminDemo",
-    "FechaPublicacion": "2025-11-01T22:35:49.9286306-03:00"
+    "FechaPublicacion": "2025-11-02T00:22:45.2511616-03:00"
   },
   {
-    "Titulo": "Noe puita de mierda",
-    "Descripcion": "Ropa",
+    "Titulo": "Facu a la venta",
+    "Descripcion": "XD",
     "Precio": "999",
-    "RutaImagen": "C:\\Users\\twerk\\Desktop\\Proyecto_Marketplace-master (1)\\Proyecto_Marketplace-master\\Proyecto_Marketplace\\bin\\Debug\\net8.0-windows\\FotosPublicacion\\0a834905-0628-4479-a241-ef1852bb1a29.png",
-    "Ubicacion": "Facu",
-    "Contacto": "2",
+    "RutaImagen": "C:\\Users\\twerk\\Desktop\\Proyecto_Marketplace-master (1)\\Proyecto_Marketplace-master\\Proyecto_Marketplace\\bin\\Debug\\net8.0-windows\\FotosPublicacion\\2fbe5c36-83fb-4603-9013-46f039f67406.jpg",
+    "Ubicacion": "Facunditomax2",
+    "Contacto": "3644544662",
     "EstadoVenta": "Disponible",
     "EstadoModeracion": "Aprobado",
     "Categoria": "Indumentaria",
     "Tipo": "Producto",
-    "UsuarioCreador": "Facu",
-    "FechaPublicacion": "2025-11-01T22:50:05.5103578-03:00"
+    "UsuarioCreador": "Facunditomax2",
+    "FechaPublicacion": "2025-11-02T00:55:43.0034028-03:00"
+  },
+  {
+    "Titulo": "sEXO gratis",
+    "Descripcion": "JsjAJS",
+    "Precio": null,
+    "RutaImagen": "C:\\Users\\twerk\\Desktop\\Proyecto_Marketplace-master (1)\\Proyecto_Marketplace-master\\Proyecto_Marketplace\\bin\\Debug\\net8.0-windows\\FotosPublicacion\\4bd5eef3-ff57-471d-9dcf-d2e38463f00c.png",
+    "Ubicacion": "Facun",
+    "Contacto": "3644544662",
+    "EstadoVenta": "Disponible",
+    "EstadoModeracion": "Aprobado",
+    "Categoria": "Vehiculos",
+    "Tipo": "Servicio",
+    "UsuarioCreador": "Facun",
+    "FechaPublicacion": "2025-11-06T16:46:14.9470286-03:00"
   }
 ]

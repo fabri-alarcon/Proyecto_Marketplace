@@ -1,17 +1,20 @@
 [
   {
-    "contacto": "2",
-    "Rol": "Usuario",
-    "Cuil": "2",
-    "NombreUsuario": "Facu",
-    "Contraseña": "1234"
+    "contacto": "0",
+    "Rol": "Admin",
+    "Cuil": "0",
+    "Email": "0",
+    "IsEmailVerified": true,
+    "NombreUsuario": "admin",
+    "Contraseña": "admin"
   },
   {
-    "contacto": "22",
-    "Rol": "Admin",
-    "Cuil": "2",
-    "NombreUsuario": "Facu2",
-    "Contraseña": "1234"
+    "contacto": "87127371237123",
+    "Rol": "Usuario",
+    "Cuil": "20462478098",
+    "Email": "josephwantstosleep@gmail.com",
+    "IsEmailVerified": true,
+    "NombreUsuario": "Facun",
+    "Contraseña": "Facundo2004"
   }
-
 ]
