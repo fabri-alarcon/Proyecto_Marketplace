@@ -1,4 +1,5 @@
-﻿namespace Proyecto_Marketplace.forms
+﻿
+namespace Proyecto_Marketplace.forms
 {
     partial class FormRegistrar
     {
@@ -37,30 +38,32 @@
             textRegUsuario = new TextBox();
             textRegContrasenia = new TextBox();
             textRegConfirmarContrasenia = new TextBox();
-            // --- INICIO DE MODIFICACIÓN (Nuevas Declaraciones) ---
             labelContacto = new Label();
             textContacto = new TextBox();
             labelCuil = new Label();
             textCuil = new TextBox();
-            // --- FIN DE MODIFICACIÓN ---
+            txtEmail = new TextBox();
+            label5 = new Label();
             SuspendLayout();
             // 
             // botonConfirmarReg
             // 
-            botonConfirmarReg.Location = new Point(190, 440); // Ajustamos posición Y
+            botonConfirmarReg.Location = new Point(217, 614);
+            botonConfirmarReg.Margin = new Padding(3, 4, 3, 4);
             botonConfirmarReg.Name = "botonConfirmarReg";
-            botonConfirmarReg.Size = new Size(75, 23);
-            botonConfirmarReg.TabIndex = 9; // Actualizamos TabIndex
+            botonConfirmarReg.Size = new Size(86, 31);
+            botonConfirmarReg.TabIndex = 9;
             botonConfirmarReg.Text = "Confirmar";
             botonConfirmarReg.UseVisualStyleBackColor = true;
             botonConfirmarReg.Click += botonConfirmarReg_Click;
             // 
             // botonCancelarReg
             // 
-            botonCancelarReg.Location = new Point(339, 440); // Ajustamos posición Y
+            botonCancelarReg.Location = new Point(386, 614);
+            botonCancelarReg.Margin = new Padding(3, 4, 3, 4);
             botonCancelarReg.Name = "botonCancelarReg";
-            botonCancelarReg.Size = new Size(75, 23);
-            botonCancelarReg.TabIndex = 10; // Actualizamos TabIndex
+            botonCancelarReg.Size = new Size(86, 31);
+            botonCancelarReg.TabIndex = 10;
             botonCancelarReg.Text = "Cancelar";
             botonCancelarReg.UseVisualStyleBackColor = true;
             botonCancelarReg.Click += botonCancelarReg_Click;
@@ -70,9 +73,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(190, 21);
+            label1.Location = new Point(217, 28);
             label1.Name = "label1";
-            label1.Size = new Size(224, 65);
+            label1.Size = new Size(269, 81);
             label1.TabIndex = 2;
             label1.Text = "Registro";
             // 
@@ -81,9 +84,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(190, 114);
+            label2.Location = new Point(217, 152);
             label2.Name = "label2";
-            label2.Size = new Size(73, 21);
+            label2.Size = new Size(89, 28);
             label2.TabIndex = 3;
             label2.Text = "Usuario:";
             // 
@@ -92,9 +95,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(190, 172);
+            label3.Location = new Point(217, 229);
             label3.Name = "label3";
-            label3.Size = new Size(100, 21);
+            label3.Size = new Size(123, 28);
             label3.TabIndex = 4;
             label3.Text = "Contraseña:";
             // 
@@ -103,57 +106,59 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.Control;
-            label4.Location = new Point(190, 230);
+            label4.Location = new Point(217, 307);
             label4.Name = "label4";
-            label4.Size = new Size(178, 21);
+            label4.Size = new Size(224, 28);
             label4.TabIndex = 5;
             label4.Text = "Confirmar Contraseña:";
             // 
             // textRegUsuario
             // 
-            textRegUsuario.Location = new Point(190, 138);
+            textRegUsuario.Location = new Point(217, 184);
+            textRegUsuario.Margin = new Padding(3, 4, 3, 4);
             textRegUsuario.Name = "textRegUsuario";
             textRegUsuario.PlaceholderText = "Escribe tu nombre de usuario";
-            textRegUsuario.Size = new Size(224, 23);
+            textRegUsuario.Size = new Size(255, 27);
             textRegUsuario.TabIndex = 0;
             // 
             // textRegContrasenia
             // 
-            textRegContrasenia.Location = new Point(190, 196);
+            textRegContrasenia.Location = new Point(217, 261);
+            textRegContrasenia.Margin = new Padding(3, 4, 3, 4);
             textRegContrasenia.Name = "textRegContrasenia";
             textRegContrasenia.PasswordChar = '*';
             textRegContrasenia.PlaceholderText = "Escribe tu contraseña";
-            textRegContrasenia.Size = new Size(224, 23);
+            textRegContrasenia.Size = new Size(255, 27);
             textRegContrasenia.TabIndex = 1;
             // 
             // textRegConfirmarContrasenia
             // 
-            textRegConfirmarContrasenia.Location = new Point(190, 254);
+            textRegConfirmarContrasenia.Location = new Point(217, 339);
+            textRegConfirmarContrasenia.Margin = new Padding(3, 4, 3, 4);
             textRegConfirmarContrasenia.Name = "textRegConfirmarContrasenia";
             textRegConfirmarContrasenia.PasswordChar = '*';
             textRegConfirmarContrasenia.PlaceholderText = "Confirma tu contraseña";
-            textRegConfirmarContrasenia.Size = new Size(224, 23);
+            textRegConfirmarContrasenia.Size = new Size(255, 27);
             textRegConfirmarContrasenia.TabIndex = 2;
-            // 
-            // --- INICIO DE MODIFICACIÓN (Nuevos Controles) ---
             // 
             // labelContacto
             // 
             labelContacto.AutoSize = true;
             labelContacto.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelContacto.ForeColor = SystemColors.Control;
-            labelContacto.Location = new Point(190, 290);
+            labelContacto.Location = new Point(217, 387);
             labelContacto.Name = "labelContacto";
-            labelContacto.Size = new Size(174, 21);
+            labelContacto.Size = new Size(220, 28);
             labelContacto.TabIndex = 11;
             labelContacto.Text = "Contacto (WhatsApp):";
             // 
             // textContacto
             // 
-            textContacto.Location = new Point(190, 314);
+            textContacto.Location = new Point(217, 419);
+            textContacto.Margin = new Padding(3, 4, 3, 4);
             textContacto.Name = "textContacto";
             textContacto.PlaceholderText = "ej: 3644123456 (solo números)";
-            textContacto.Size = new Size(224, 23);
+            textContacto.Size = new Size(255, 27);
             textContacto.TabIndex = 3;
             // 
             // labelCuil
@@ -161,28 +166,48 @@
             labelCuil.AutoSize = true;
             labelCuil.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelCuil.ForeColor = SystemColors.Control;
-            labelCuil.Location = new Point(190, 350);
+            labelCuil.Location = new Point(217, 467);
             labelCuil.Name = "labelCuil";
-            labelCuil.Size = new Size(160, 21);
+            labelCuil.Size = new Size(206, 28);
             labelCuil.TabIndex = 13;
             labelCuil.Text = "CUIL (solo números):";
             // 
             // textCuil
             // 
-            textCuil.Location = new Point(190, 374);
+            textCuil.Location = new Point(217, 499);
+            textCuil.Margin = new Padding(3, 4, 3, 4);
             textCuil.Name = "textCuil";
             textCuil.PlaceholderText = "ej: 20123456789";
-            textCuil.Size = new Size(224, 23);
+            textCuil.Size = new Size(255, 27);
             textCuil.TabIndex = 4;
             // 
-            // --- FIN DE MODIFICACIÓN ---
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(217, 563);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(255, 27);
+            txtEmail.TabIndex = 14;
+            txtEmail.TextChanged += textBox1_TextChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(217, 532);
+            label5.Name = "label5";
+            label5.Size = new Size(64, 28);
+            label5.TabIndex = 15;
+            label5.Text = "Email";
             // 
             // FormRegistrar
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Indigo;
-            ClientSize = new Size(584, 511); // Tamaño de ventana actualizado
+            ClientSize = new Size(667, 681);
+            Controls.Add(label5);
+            Controls.Add(txtEmail);
             Controls.Add(textRegConfirmarContrasenia);
             Controls.Add(textRegContrasenia);
             Controls.Add(textRegUsuario);
@@ -192,16 +217,20 @@
             Controls.Add(label1);
             Controls.Add(botonCancelarReg);
             Controls.Add(botonConfirmarReg);
-            // --- INICIO DE MODIFICACIÓN (Añadir controles al formulario) ---
             Controls.Add(labelContacto);
             Controls.Add(textContacto);
             Controls.Add(labelCuil);
             Controls.Add(textCuil);
-            // --- FIN DE MODIFICACIÓN ---
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormRegistrar";
             Text = "FormRegistrar";
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
         #endregion
@@ -220,6 +249,8 @@
         private TextBox textContacto;
         private Label labelCuil;
         private TextBox textCuil;
+        private TextBox txtEmail;
+        private Label label5;
         // --- FIN DE MODIFICACIÓN ---
     }
 }

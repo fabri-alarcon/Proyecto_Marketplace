@@ -1,6 +1,7 @@
 ﻿using Proyecto_Marketplace.clases;
 using Proyecto_Marketplace.forms;
 using System.Text;
+using Proyecto_Marketplace.Controls; 
 
 namespace Proyecto_Marketplace
 {
@@ -60,7 +61,8 @@ namespace Proyecto_Marketplace
             comboCategoriaFiltro.Items.Add("Tecnología");
             comboCategoriaFiltro.Items.Add("Hogar y Muebles");
             comboCategoriaFiltro.Items.Add("Indumentaria");
-            comboCategoriaFiltro.Items.Add("Servicios");
+            comboCategoriaFiltro.Items.Add("Deporte");
+            comboCategoriaFiltro.Items.Add("Vehiculos");
             comboCategoriaFiltro.Items.Add("Otros");
             comboCategoriaFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
             comboCategoriaFiltro.SelectedIndex = 0;
@@ -149,11 +151,6 @@ namespace Proyecto_Marketplace
             return new Bitmap(100, 100);
         }
 
-        // (El resto de tus funciones: MostrarPublicaciones, AgregarClickRecursivo, Post_Click, 
-        //  CargarSugerenciasBusqueda, AplicarFiltros_Click, BotonModerar_Click, 
-        //  los eventos del ContextMenu, botonPerfil_Click, etc.
-        //  ya estaban correctas y se mantienen igual)
-
         private void MostrarPublicaciones()
         {
             flowPanel.Controls.Clear();
@@ -176,76 +173,41 @@ namespace Proyecto_Marketplace
                                 p.Descripcion.ToLower().Contains(busqueda));
             }
 
+            
+
             foreach (var pub in publicacionesAMostrar)
             {
-                Panel post = new Panel
-                {
-                    Width = 200,
-                    Height = 250,
-                    Margin = new Padding(10),
-                    BackColor = Color.White,
-                    BorderStyle = BorderStyle.FixedSingle,
-                    Tag = pub,
-                    Cursor = Cursors.Hand
-                };
+                // 1. Creamos nuestra nueva tarjeta personalizada
+                PublicacionCard card = new PublicacionCard(pub);
+                card.Tag = pub; // Asignamos la publicación al Tag (para el clic)
+                card.Margin = new Padding(10); // El margen que tenías
 
-                PictureBox pb = new PictureBox
-                {
-                    Image = CargarImagenSegura(pub.RutaImagen),
-                    SizeMode = PictureBoxSizeMode.Zoom,
-                    Width = 180,
-                    Height = 170,
-                    Top = 10,
-                    Left = 10,
-                    Cursor = Cursors.Hand,
-                    BackColor = Color.Transparent
-                };
+                // 2. Conectamos el clic (reutilizamos tu método AgregarClickRecursivo)
+                // Esto hará que la tarjeta Y sus hijos (imagen, texto) abran la publicación.
+                AgregarClickRecursivo(card, Post_Click);
 
-                Label lblTitulo = new Label
-                {
-                    Text = pub.Titulo,
-                    Top = 185,
-                    Left = 10,
-                    Width = 180,
-                    Font = new Font("Arial", 10, FontStyle.Bold),
-                    Cursor = Cursors.Hand
-                };
-
-                Label lblPrecio = new Label
-                {
-                    Text = "$" + pub.Precio,
-                    Top = 205,
-                    Left = 10,
-                    Width = 180,
-                    ForeColor = Color.Green,
-                    Cursor = Cursors.Hand
-                };
-
-                post.Controls.Add(pb);
-                post.Controls.Add(lblTitulo);
-                post.Controls.Add(lblPrecio);
-
+                // 3. Lógica de Admin (El menú "...")
                 if (usuarioActual.Rol == "Admin")
                 {
                     Button btnMenu = new Button
                     {
                         Text = "...",
                         Tag = pub,
-                        Left = pb.Width - 30,
+                        Left = 150, // Posición en la esquina (200 - 30)
                         Top = 5,
                         Width = 25,
                         Height = 25,
-                        Font = new Font("Arial", 8, FontStyle.Bold),
                         Cursor = Cursors.Default
                     };
-
                     btnMenu.Click += BtnMenu_Click;
-                    pb.Controls.Add(btnMenu);
+
+                    
+                    card.Controls.Add(btnMenu);
+                   
+                    btnMenu.BringToFront();
                 }
 
-                AgregarClickRecursivo(post, Post_Click);
-
-                flowPanel.Controls.Add(post);
+                flowPanel.Controls.Add(card);
             }
         }
 
@@ -264,14 +226,25 @@ namespace Proyecto_Marketplace
 
         private void Post_Click(object sender, EventArgs e)
         {
-            Control actual = sender as Control;
-            while (actual != null && actual is not Panel)
-                actual = actual.Parent;
+            // 1. Identificamos qué control disparó el evento (puede ser la tarjeta, el texto o la imagen)
+            Control control = sender as Control;
 
-            if (actual is Panel panel && panel.Tag is Publicacion pub)
+            // 2. Escalamos hacia arriba en la jerarquía hasta encontrar la "tarjeta" principal
+            // (que es de tipo 'PublicacionCard')
+            while (control != null && control is not PublicacionCard)
             {
-                FormPublicacion ventana = new FormPublicacion(usuarioActual, pub);
-                ventana.ShowDialog();
+                control = control.Parent;
+            }
+
+            // 3. Si encontramos la tarjeta (control) y no es nula...
+            if (control is PublicacionCard card)
+            {
+                // 4. obtenemos la publicación que guardamos en su 'Tag' y abrimos el detalle
+                if (card.Tag is Publicacion pub)
+                {
+                    FormPublicacion ventana = new FormPublicacion(usuarioActual, pub);
+                    ventana.ShowDialog();
+                }
             }
         }
 
@@ -403,10 +376,15 @@ namespace Proyecto_Marketplace
                 return;
             }
 
-            FormProfile ventanaPerfil = new FormProfile(usuarioActual);
+            // --- ¡MODIFICACIÓN! ---
+            // Ahora le pasamos el 'usuarioActual' Y el 'repoPublicaciones'
+            FormProfile ventanaPerfil = new FormProfile(usuarioActual, repoPublicaciones);
+            // --- FIN DE LA MODIFICACIÓN ---
+
             ventanaPerfil.FotoPerfilCambiada += ActualizarFotoPerfil;
             ventanaPerfil.ShowDialog();
 
+            // Actualizamos al usuario por si cambió su Contacto/CUIL
             RepositorioUsuarios.ActualizarUsuario(usuarioActual);
         }
 

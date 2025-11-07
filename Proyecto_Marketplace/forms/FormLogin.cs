@@ -10,55 +10,72 @@ namespace Proyecto_Marketplace
             InitializeComponent();
 
             //Control de tamaño de la ventana formlogin
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // Bordes fijos
-            this.MaximizeBox = false; // Deshabilita el botón maximizar
-            this.MinimizeBox = true; // Puedes dejar minimizar si quieres
-            this.StartPosition = FormStartPosition.CenterScreen; // Para que aparezca centrada
-            this.Size = new Size(600, 400); // Tamaño fijo de la ventana
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = true;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(600, 400);
 
         }
 
         public Usuario UsuarioLogeado { get; private set; }
 
 
-
-
-        // Botón para iniciar sesión
+        // --- ESTE ES EL BOTÓN DE INICIAR SESIÓN ---
         private void botonIniciarSesion_Click(object sender, EventArgs e)
         {
-
             string nombre = textUsuario.Text.Trim();
             string contrasenia = textContrasenia.Text;
 
-            // Buscar usuario
-            var usuario = RepositorioUsuarios.BuscarPorNombre(nombre);
-
-            // Validar credenciales
-            if (usuario == null || usuario.Contraseña != contrasenia)
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(contrasenia))
             {
-                MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, ingrese usuario y contraseña.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Guardar el usuario en la sesión actual
-            Sesion.UsuarioActual = usuario;
-            UsuarioLogeado = usuario;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            Usuario u = RepositorioUsuarios.BuscarPorNombre(nombre);
+
+            if (u != null)
+            {
+                if (u.ValidarLogin(nombre, contrasenia))
+                {
+                    if (u.IsEmailVerified)
+                    {
+                        this.UsuarioLogeado = u;
+                        Sesion.UsuarioActual = u;
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este usuario está registrado pero no ha verificado su email. Por favor, revisa tu correo para encontrar el código de activación.", "Email no verificado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        // Botón para registrar un nuevo usuario
+        // --- ESTOS SON LOS OTROS BOTONES ---
+
         private void botonRegistrarse_Click(object sender, EventArgs e)
         {
-            FormRegistrar ventanaReg = new FormRegistrar();
-            ventanaReg.Show();
+            FormRegistrar ventanaRegistrar = new FormRegistrar();
+            ventanaRegistrar.ShowDialog();
         }
 
         private void botonContinuarInvitado_Click(object sender, EventArgs e)
         {
             this.UsuarioLogeado = new Usuario("Invitado");
+            Sesion.UsuarioActual = this.UsuarioLogeado;
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }   
+        }
     }
 }

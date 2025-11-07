@@ -18,7 +18,8 @@ namespace Proyecto_Marketplace.forms
             comboCategoria.Items.Add("Tecnología");
             comboCategoria.Items.Add("Hogar y Muebles");
             comboCategoria.Items.Add("Indumentaria");
-            comboCategoria.Items.Add("Servicios");
+            comboCategoria.Items.Add("Deporte");
+            comboCategoria.Items.Add("Vehiculos");
             comboCategoria.Items.Add("Otros");
             comboCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             comboCategoria.SelectedIndex = 0;
@@ -26,7 +27,20 @@ namespace Proyecto_Marketplace.forms
 
         private void botonPublicar_Click_1(object sender, EventArgs e)
         {
-            // ... (Todas tus validaciones de campos vacíos, precio y rutaImagenSeleccionada == null) ...
+
+            int limitePublicaciones = 5;
+
+            
+            int publicacionesActuales = repoPublicaciones.Publicaciones
+                .Count(p => p.UsuarioCreador == usuarioActual.NombreUsuario &&
+                              p.EstadoVenta == "Disponible");
+
+            
+            if (publicacionesActuales >= limitePublicaciones)
+            {
+                MessageBox.Show($"Ha alcanzado el límite de {limitePublicaciones} publicaciones activas.", "Límite alcanzado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (string.IsNullOrWhiteSpace(textBoxTitulo.Text) ||
                 string.IsNullOrWhiteSpace(textBoxPrecio.Text) ||
                 string.IsNullOrWhiteSpace(textBoxDescripcion.Text))
@@ -69,7 +83,7 @@ namespace Proyecto_Marketplace.forms
                     textBoxTitulo.Text,
                     textBoxPrecio.Text,
                     textBoxDescripcion.Text,
-                    rutaImagenSeleccionada, // Pasamos la RUTA (string)
+                    rutaImagenSeleccionada, 
                     usuarioActual.NombreUsuario,
                     usuarioActual.contacto,
                     "Disponible",
@@ -81,7 +95,7 @@ namespace Proyecto_Marketplace.forms
             {
                 nueva = new Publicacion(
                     textBoxTitulo.Text,
-                    rutaImagenSeleccionada, // Pasamos la RUTA (string)
+                    rutaImagenSeleccionada, 
                     textBoxDescripcion.Text,
                     usuarioActual.NombreUsuario,
                     usuarioActual.contacto,

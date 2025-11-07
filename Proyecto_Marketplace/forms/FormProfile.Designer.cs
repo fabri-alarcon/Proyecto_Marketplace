@@ -44,31 +44,38 @@
             txtContacto = new TextBox();
             txtNombreUsuario = new TextBox();
             txtCuil = new TextBox();
+            flowHistorial = new FlowLayoutPanel();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPerfil).BeginInit();
+            flowHistorial.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBoxPerfil
             // 
-            pictureBoxPerfil.BackColor = Color.Indigo;
+            pictureBoxPerfil.BackColor = Color.Transparent;
             pictureBoxPerfil.BackgroundImage = (Image)resources.GetObject("pictureBoxPerfil.BackgroundImage");
             pictureBoxPerfil.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBoxPerfil.ErrorImage = Properties.Resources.perfilPredeterminado;
             pictureBoxPerfil.ImageLocation = "";
             pictureBoxPerfil.InitialImage = Properties.Resources.perfilPredeterminado;
-            pictureBoxPerfil.Location = new Point(40, 16);
+            pictureBoxPerfil.Location = new Point(56, 22);
             pictureBoxPerfil.Margin = new Padding(3, 4, 3, 4);
             pictureBoxPerfil.Name = "pictureBoxPerfil";
-            pictureBoxPerfil.Size = new Size(215, 245);
+            pictureBoxPerfil.Size = new Size(122, 163);
             pictureBoxPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxPerfil.TabIndex = 0;
             pictureBoxPerfil.TabStop = false;
             // 
             // boton_cambiarFoto
             // 
-            boton_cambiarFoto.Location = new Point(40, 269);
+            boton_cambiarFoto.Location = new Point(56, 226);
             boton_cambiarFoto.Margin = new Padding(3, 4, 3, 4);
             boton_cambiarFoto.Name = "boton_cambiarFoto";
-            boton_cambiarFoto.Size = new Size(102, 31);
+            boton_cambiarFoto.Size = new Size(100, 34);
             boton_cambiarFoto.TabIndex = 1;
             boton_cambiarFoto.Text = "cambiar ";
             boton_cambiarFoto.UseVisualStyleBackColor = true;
@@ -77,31 +84,31 @@
             // labelBienvenida
             // 
             labelBienvenida.AutoSize = true;
-            labelBienvenida.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelBienvenida.Font = new Font("Segoe UI", 28.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelBienvenida.ForeColor = Color.White;
-            labelBienvenida.Location = new Point(304, 16);
+            labelBienvenida.Location = new Point(3, 1);
             labelBienvenida.Name = "labelBienvenida";
-            labelBienvenida.Size = new Size(369, 81);
+            labelBienvenida.Size = new Size(304, 66);
             labelBienvenida.TabIndex = 2;
             labelBienvenida.Text = "Bienvenido!";
             // 
             // labelNombreUsuario
             // 
             labelNombreUsuario.AutoSize = true;
-            labelNombreUsuario.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelNombreUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelNombreUsuario.ForeColor = Color.White;
-            labelNombreUsuario.Location = new Point(304, 85);
+            labelNombreUsuario.Location = new Point(56, 188);
             labelNombreUsuario.Name = "labelNombreUsuario";
-            labelNombreUsuario.Size = new Size(250, 81);
+            labelNombreUsuario.Size = new Size(84, 28);
             labelNombreUsuario.TabIndex = 3;
             labelNombreUsuario.Text = "Usuario";
             // 
             // boton_eliminarFoto
             // 
-            boton_eliminarFoto.Location = new Point(149, 269);
+            boton_eliminarFoto.Location = new Point(56, 268);
             boton_eliminarFoto.Margin = new Padding(3, 4, 3, 4);
             boton_eliminarFoto.Name = "boton_eliminarFoto";
-            boton_eliminarFoto.Size = new Size(106, 31);
+            boton_eliminarFoto.Size = new Size(100, 34);
             boton_eliminarFoto.TabIndex = 4;
             boton_eliminarFoto.Text = "eliminar";
             boton_eliminarFoto.UseVisualStyleBackColor = true;
@@ -109,10 +116,10 @@
             // 
             // btnGuardarCambios
             // 
-            btnGuardarCambios.Location = new Point(385, 296);
+            btnGuardarCambios.Location = new Point(255, 318);
             btnGuardarCambios.Margin = new Padding(3, 4, 3, 4);
             btnGuardarCambios.Name = "btnGuardarCambios";
-            btnGuardarCambios.Size = new Size(156, 31);
+            btnGuardarCambios.Size = new Size(124, 51);
             btnGuardarCambios.TabIndex = 5;
             btnGuardarCambios.Text = "Guardar cambios";
             btnGuardarCambios.UseVisualStyleBackColor = true;
@@ -121,7 +128,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(320, 184);
+            label1.Location = new Point(256, 139);
             label1.Name = "label1";
             label1.Size = new Size(72, 20);
             label1.TabIndex = 6;
@@ -131,7 +138,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(350, 255);
+            label2.Location = new Point(256, 255);
             label2.Name = "label2";
             label2.Size = new Size(39, 20);
             label2.TabIndex = 8;
@@ -141,7 +148,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(370, 217);
+            label3.Location = new Point(352, 280);
             label3.Name = "label3";
             label3.Size = new Size(0, 20);
             label3.TabIndex = 9;
@@ -150,17 +157,17 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = SystemColors.Control;
-            label4.Location = new Point(398, 184);
+            label4.Location = new Point(380, 247);
             label4.Name = "label4";
             label4.Size = new Size(0, 20);
             label4.TabIndex = 10;
             // 
             // botonVolverAtras
             // 
-            botonVolverAtras.Location = new Point(682, 568);
+            botonVolverAtras.Location = new Point(12, 480);
             botonVolverAtras.Margin = new Padding(3, 4, 3, 4);
             botonVolverAtras.Name = "botonVolverAtras";
-            botonVolverAtras.Size = new Size(86, 31);
+            botonVolverAtras.Size = new Size(128, 34);
             botonVolverAtras.TabIndex = 11;
             botonVolverAtras.Text = "volver atrás";
             botonVolverAtras.UseVisualStyleBackColor = true;
@@ -170,7 +177,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.White;
-            label5.Location = new Point(333, 220);
+            label5.Location = new Point(256, 201);
             label5.Name = "label5";
             label5.Size = new Size(59, 20);
             label5.TabIndex = 12;
@@ -178,50 +185,98 @@
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(398, 181);
+            txtContacto.Location = new Point(256, 171);
             txtContacto.Name = "txtContacto";
-            txtContacto.Size = new Size(125, 27);
+            txtContacto.Size = new Size(123, 27);
             txtContacto.TabIndex = 13;
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(398, 217);
+            txtNombreUsuario.Location = new Point(257, 225);
             txtNombreUsuario.Name = "txtNombreUsuario";
-            txtNombreUsuario.Size = new Size(125, 27);
+            txtNombreUsuario.Size = new Size(123, 27);
             txtNombreUsuario.TabIndex = 14;
             // 
             // txtCuil
             // 
-            txtCuil.Location = new Point(398, 252);
+            txtCuil.Location = new Point(256, 280);
             txtCuil.Name = "txtCuil";
-            txtCuil.Size = new Size(125, 27);
+            txtCuil.ReadOnly = true;
+            txtCuil.Size = new Size(123, 27);
             txtCuil.TabIndex = 15;
+            // 
+            // flowHistorial
+            // 
+            flowHistorial.Controls.Add(label6);
+            flowHistorial.Location = new Point(527, 139);
+            flowHistorial.Name = "flowHistorial";
+            flowHistorial.Size = new Size(635, 474);
+            flowHistorial.TabIndex = 16;
+            flowHistorial.Click += flowHistorial_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.SlateBlue;
+            panel1.Controls.Add(labelBienvenida);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1197, 67);
+            panel1.TabIndex = 17;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.SlateBlue;
+            panel2.Controls.Add(labelNombreUsuario);
+            panel2.Controls.Add(pictureBoxPerfil);
+            panel2.Controls.Add(boton_cambiarFoto);
+            panel2.Controls.Add(boton_eliminarFoto);
+            panel2.Controls.Add(botonVolverAtras);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 67);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(250, 581);
+            panel2.TabIndex = 18;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(3, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(139, 41);
+            label6.TabIndex = 19;
+            label6.Text = "Historial";
             // 
             // FormProfile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Indigo;
-            ClientSize = new Size(782, 615);
+            ClientSize = new Size(1197, 648);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(flowHistorial);
             Controls.Add(txtCuil);
             Controls.Add(txtNombreUsuario);
             Controls.Add(txtContacto);
             Controls.Add(label5);
-            Controls.Add(botonVolverAtras);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnGuardarCambios);
-            Controls.Add(boton_eliminarFoto);
-            Controls.Add(labelNombreUsuario);
-            Controls.Add(labelBienvenida);
-            Controls.Add(boton_cambiarFoto);
-            Controls.Add(pictureBoxPerfil);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormProfile";
             StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)pictureBoxPerfil).EndInit();
+            flowHistorial.ResumeLayout(false);
+            flowHistorial.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -243,5 +298,9 @@
         private TextBox txtContacto;
         private TextBox txtNombreUsuario;
         private TextBox txtCuil;
+        private FlowLayoutPanel flowHistorial;
+        private Panel panel1;
+        private Panel panel2;
+        private Label label6;
     }
 }

@@ -3,58 +3,207 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Linq; // <-- ¡IMPORTANTE! Añade esta línea
 
 namespace Proyecto_Marketplace.forms
 {
     public partial class FormProfile : Form
     {
         private Usuario usuarioActual;
-        public event Action FotoPerfilCambiada; // Evento público
-        public FormProfile(Usuario usuario)
+        private RepositorioPublicaciones repoPublicaciones; // <-- Para el historial
+        public event Action FotoPerfilCambiada;
+
+        // --- CONSTRUCTOR MODIFICADO (ahora recibe el repo) ---
+        public FormProfile(Usuario usuario, RepositorioPublicaciones repo)
         {
             InitializeComponent();
             usuarioActual = usuario ?? throw new ArgumentNullException(nameof(usuario));
+            repoPublicaciones = repo; // Guardamos el repositorio
 
-            // Configuración visual de la ventana
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            // Al cargar el formulario, se muestra la foto guardada (si tiene)
             this.Load += FormPerfil_Load;
 
-            // --- CÓDIGO CORREGIDO EN PASO ANTERIOR ---
-            // Carga los datos del usuario en los TextBoxes editables
+            // Carga los datos en los TextBoxes
             txtNombreUsuario.Text = usuarioActual.NombreUsuario;
-            txtNombreUsuario.ReadOnly = true; // No dejamos cambiar el nombre
+            txtNombreUsuario.ReadOnly = true;
             txtNombreUsuario.BackColor = Color.Gray;
             txtContacto.Text = usuarioActual.contacto;
             txtCuil.Text = usuarioActual.Cuil;
 
-            // Conectamos el botón de guardar
             btnGuardarCambios.Click += btnGuardarCambios_Click;
-            // --- FIN DE CORRECCIÓN ---
         }
 
-        // --- INICIO DE LA SOLUCIÓN AL ERROR DE BLOQUEO ---
         private void FormPerfil_Load(object sender, EventArgs e)
         {
-            // Si el usuario tiene una ruta guardada y el archivo existe, mostrar la foto
-            // En FormProfile.cs, dentro de FormPerfil_Load
-            string rutaFoto = usuarioActual.obtenerRutaFotoPerfil();
-            if (!string.IsNullOrEmpty(rutaFoto) && File.Exists(rutaFoto))
+            // Cargar la foto (código sin bloqueo)
+            string ruta = usuarioActual.obtenerRutaFotoPerfil();
+            if (!string.IsNullOrEmpty(ruta) && File.Exists(ruta))
             {
-                // Usamos un FileStream para cargar la imagen sin bloquear el archivo
-                // (Igual que haces en tu boton_cambiarFoto_Click)
-                using (var fs = new FileStream(rutaFoto, FileMode.Open, FileAccess.Read))
+                using (var fs = new FileStream(ruta, FileMode.Open, FileAccess.Read))
                 {
                     pictureBoxPerfil.Image = new Bitmap(fs);
                 }
             }
-        }
-        // --- FIN DE LA SOLUCIÓN ---
 
-        // --- CÓDIGO CORREGIDO EN PASO ANTERIOR ---
+            // --- Carga el historial al abrir el formulario ---
+            CargarHistorialPublicaciones();
+        }
+
+        // --- NUEVO MÉTODO PARA MOSTRAR EL HISTORIAL ---
+        private void CargarHistorialPublicaciones()
+{
+    flowHistorial.Controls.Clear();
+
+    var misPublicaciones = repoPublicaciones.Publicaciones
+        .Where(p => p.UsuarioCreador == usuarioActual.NombreUsuario)
+        .OrderByDescending(p => p.FechaPublicacion) 
+        .ToList();
+
+    if (misPublicaciones.Count == 0)
+    {
+        Label lblVacio = new Label();
+        lblVacio.Text = "Aún no has creado publicaciones.";
+        lblVacio.ForeColor = Color.White; 
+        lblVacio.AutoSize = true;
+        flowHistorial.Controls.Add(lblVacio);
+        return;
+    }
+
+    foreach (var pub in misPublicaciones)
+    {
+        Panel miniPanel = new Panel
+        {
+            Width = 150, 
+            Height = 150,
+            BackColor = Color.Indigo, 
+            BorderStyle = BorderStyle.FixedSingle, 
+            Margin = new Padding(5),
+            Tag = pub,
+            Cursor = Cursors.Hand // <-- (Opcional: cambia el cursor a una manito)
+        };
+        
+        PictureBox miniPb = new PictureBox
+        {
+            Image = CargarImagenSegura(pub.RutaImagen), 
+            SizeMode = PictureBoxSizeMode.Zoom,
+            Dock = DockStyle.Top,
+            Height = 100,
+            BackColor = Color.Transparent
+        };
+
+        Label miniTitulo = new Label
+        {
+            Text = pub.Titulo,
+            ForeColor = Color.White,
+            Dock = DockStyle.Bottom,
+            TextAlign = ContentAlignment.MiddleCenter,
+            Height = 50
+        };
+        
+        // Conexión de la animación "Hover" (que ya tenías)
+        miniPanel.MouseEnter += new EventHandler(miniPanel_MouseEnter);
+        miniPanel.MouseLeave += new EventHandler(miniPanel_MouseLeave);
+        miniPb.MouseEnter += new EventHandler(miniPanel_MouseEnter);
+        miniPb.MouseLeave += new EventHandler(miniPanel_MouseLeave);
+        miniTitulo.MouseEnter += new EventHandler(miniPanel_MouseEnter);
+        miniTitulo.MouseLeave += new EventHandler(miniPanel_MouseLeave);
+        
+        // --- ¡INICIO DE LA NUEVA MODIFICACIÓN! ---
+        // Conectamos el evento Click al panel y a sus hijos
+        miniPanel.Click += new EventHandler(miniPanel_Click);
+        miniPb.Click += new EventHandler(miniPanel_Click);
+        miniTitulo.Click += new EventHandler(miniPanel_Click);
+        // --- FIN DE LA NUEVA MODIFICACIÓN ---
+        
+        miniPanel.Controls.Add(miniTitulo);
+        miniPanel.Controls.Add(miniPb);
+        flowHistorial.Controls.Add(miniPanel);
+    }
+}
+        private void miniPanel_Click(object sender, EventArgs e)
+        {
+            // 1. Identificamos qué control disparó el evento (Panel, Label o PictureBox)
+            Control control = sender as Control;
+
+            // 2. Si fue un hijo (Label/PictureBox), subimos al Panel principal
+            if (control is not Panel)
+            {
+                control = control.Parent;
+            }
+            Panel panel = control as Panel;
+
+            // 3. Obtenemos la publicación que guardamos en el Tag
+            if (panel != null && panel.Tag is Publicacion pub)
+            {
+                // 4. ¡Abrimos FormPublicacion (la ventana de detalle)!
+                // Le pasamos el usuario actual y la publicación en la que se hizo clic.
+                FormPublicacion ventanaDetalle = new FormPublicacion(usuarioActual, pub);
+                ventanaDetalle.ShowDialog();
+            }
+        }
+        // --- NUEVOS MÉTODOS PARA LA ANIMACIÓN "HOVER" ---
+        private void miniPanel_MouseEnter(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            if (control is not Panel) // Si es el Label o PictureBox
+            {
+                control = control.Parent; // Sube al Panel
+            }
+            Panel panel = control as Panel;
+
+            if (panel != null)
+            {
+                panel.BackColor = Color.MediumPurple; // Color de resaltado
+                panel.BorderStyle = BorderStyle.Fixed3D; // Borde resaltado
+            }
+        }
+
+        private void miniPanel_MouseLeave(object sender, EventArgs e)
+        {
+            Control control = sender as Control;
+            if (control is not Panel)
+            {
+                control = control.Parent;
+            }
+            Panel panel = control as Panel;
+
+            if (panel != null)
+            {
+                panel.BackColor = Color.Indigo; // Color original
+                panel.BorderStyle = BorderStyle.FixedSingle; // Borde original
+            }
+        }
+
+        // --- FUNCIÓN AUXILIAR PARA CARGAR IMÁGENES ---
+        private Image CargarImagenSegura(string ruta)
+        {
+            try
+            {
+                if (File.Exists(ruta))
+                {
+                    using (var fs = new FileStream(ruta, FileMode.Open, FileAccess.Read))
+                        return new Bitmap(fs);
+                }
+            }
+            catch { }
+            try
+            {
+                string placeholderPath = Path.Combine(Application.StartupPath, "media", "placeholder.png");
+                if (File.Exists(placeholderPath))
+                    return Image.FromFile(placeholderPath);
+            }
+            catch { }
+            return new Bitmap(100, 100);
+        }
+
+        //
+        // --- (AQUÍ VA EL RESTO DE TU CÓDIGO EXISTENTE) ---
+        // (btnGuardarCambios_Click, boton_cambiarFoto_Click, boton_eliminarFoto_Click, etc.)
+        //
+
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
             string nuevoContacto = txtContacto.Text.Trim();
@@ -72,6 +221,16 @@ namespace Proyecto_Marketplace.forms
                 return;
             }
 
+            // (Aquí deberías añadir la validación de CUIL/Contacto duplicado)
+            if (nuevoCuil != usuarioActual.Cuil && RepositorioUsuarios.ExisteCuil(nuevoCuil))
+            {
+                MessageBox.Show("Ese CUIL ya está en uso por otra cuenta.", "Error"); return;
+            }
+            if (nuevoContacto != usuarioActual.contacto && RepositorioUsuarios.ExisteContacto(nuevoContacto))
+            {
+                MessageBox.Show("Ese Contacto ya está en uso por otra cuenta.", "Error"); return;
+            }
+
             usuarioActual.contacto = nuevoContacto;
             usuarioActual.Cuil = nuevoCuil;
 
@@ -86,9 +245,7 @@ namespace Proyecto_Marketplace.forms
                 MessageBox.Show("Error al actualizar el perfil.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // --- FIN DE CORRECCIÓN ---
 
-        // Botón para cambiar la foto
         private void boton_cambiarFoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialogo = new OpenFileDialog();
@@ -104,7 +261,6 @@ namespace Proyecto_Marketplace.forms
                 string nombreArchivo = $"{usuarioActual.NombreUsuario}_perfil{Path.GetExtension(dialogo.FileName)}";
                 string rutaDestino = Path.Combine(carpetaFotos, nombreArchivo);
 
-                // Liberar imagen previa (Tu código ya hacía esto bien)
                 if (pictureBoxPerfil.Image != null)
                 {
                     pictureBoxPerfil.Image.Dispose();
@@ -113,17 +269,14 @@ namespace Proyecto_Marketplace.forms
 
                 File.Copy(dialogo.FileName, rutaDestino, true);
 
-                // Cargar nueva imagen sin bloquear archivo
                 using (var fs = new FileStream(rutaDestino, FileMode.Open, FileAccess.Read))
                 {
                     pictureBoxPerfil.Image = new Bitmap(fs);
                 }
 
-                // ACTUALIZAR el objeto actual y el repositorio
                 usuarioActual.cambiarRutaFotoPerfil(rutaDestino);
                 RepositorioUsuarios.ActualizarUsuario(usuarioActual);
 
-                // Notificar cambio
                 FotoPerfilCambiada?.Invoke();
 
                 MessageBox.Show("Foto de perfil actualizada correctamente.");
@@ -132,12 +285,8 @@ namespace Proyecto_Marketplace.forms
 
         private void boton_eliminarFoto_Click(object sender, EventArgs e)
         {
-            // En FormProfile.cs, dentro de boton_eliminarFoto_Click
-
-            // 1. Guardamos la ruta en una variable local
             string ruta = usuarioActual.obtenerRutaFotoPerfil();
 
-            // 2. Comprobamos esa variable
             if (!string.IsNullOrWhiteSpace(ruta) && File.Exists(ruta))
             {
                 DialogResult resultado = MessageBox.Show(
@@ -145,22 +294,25 @@ namespace Proyecto_Marketplace.forms
                 "Confirmar eliminación",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
-                );
+            );
 
                 if (resultado == DialogResult.Yes)
                 {
-                    if (pictureBoxPerfil.Image != null)
+                    if (!string.IsNullOrEmpty(ruta) && File.Exists(ruta))
                     {
-                        pictureBoxPerfil.Image.Dispose();
-                        pictureBoxPerfil.Image = null;
-                    }
+                        if (pictureBoxPerfil.Image != null)
+                        {
+                            pictureBoxPerfil.Image.Dispose();
+                            pictureBoxPerfil.Image = null;
+                        }
 
-                    // 3. Usamos la variable local 'ruta', que ya sabemos que no es null
-                    File.Delete(ruta);
+                        File.Delete(ruta);
+                    }
 
                     usuarioActual.cambiarRutaFotoPerfil("");
                     RepositorioUsuarios.ActualizarUsuario(usuarioActual);
-                    FotoPerfilCambiada?.Invoke(); // Dispara el evento
+
+                    FotoPerfilCambiada?.Invoke();
 
                     MessageBox.Show("Foto de perfil eliminada correctamente.");
                 }
@@ -177,6 +329,11 @@ namespace Proyecto_Marketplace.forms
         private void botonVolverAtras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void flowHistorial_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

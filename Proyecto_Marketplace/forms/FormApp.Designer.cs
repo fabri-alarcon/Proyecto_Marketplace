@@ -144,26 +144,26 @@
             adminContextMenu.ImageScalingSize = new Size(20, 20);
             adminContextMenu.Items.AddRange(new ToolStripItem[] { aprobarToolStripMenuItem, eliminarToolStripMenuItem, infoToolStripMenuItem });
             adminContextMenu.Name = "adminContextMenu";
-            adminContextMenu.Size = new Size(211, 104);
+            adminContextMenu.Size = new Size(159, 76);
             // 
             // aprobarToolStripMenuItem
             // 
             aprobarToolStripMenuItem.Name = "aprobarToolStripMenuItem";
-            aprobarToolStripMenuItem.Size = new Size(210, 24);
+            aprobarToolStripMenuItem.Size = new Size(158, 24);
             aprobarToolStripMenuItem.Text = "Aprobar";
             aprobarToolStripMenuItem.Click += aprobarToolStripMenuItem_Click;
             // 
             // eliminarToolStripMenuItem
             // 
             eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            eliminarToolStripMenuItem.Size = new Size(210, 24);
+            eliminarToolStripMenuItem.Size = new Size(158, 24);
             eliminarToolStripMenuItem.Text = "Eliminar";
             eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
             // 
             // infoToolStripMenuItem
             // 
             infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            infoToolStripMenuItem.Size = new Size(210, 24);
+            infoToolStripMenuItem.Size = new Size(158, 24);
             infoToolStripMenuItem.Text = "Información";
             infoToolStripMenuItem.Click += infoToolStripMenuItem_Click;
             // 
