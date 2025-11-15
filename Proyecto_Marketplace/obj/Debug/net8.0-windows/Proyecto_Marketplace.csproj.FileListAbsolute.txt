@@ -31,3 +31,6 @@ C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-mast
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.genruntimeconfig.cache
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\ref\Proyecto_Marketplace.dll
 C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Controls.PublicacionCard.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormZoomImagen.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\revoque_apli.jpeg
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\tele.jpeg

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormApp));
             botonBuscar = new Button();
             textBoxBusqueda = new TextBox();
             botonPerfil = new Button();
@@ -66,10 +67,10 @@
             // 
             // botonPerfil
             // 
-            botonPerfil.Location = new Point(21, 109);
+            botonPerfil.Location = new Point(21, 156);
             botonPerfil.Margin = new Padding(3, 4, 3, 4);
             botonPerfil.Name = "botonPerfil";
-            botonPerfil.Size = new Size(86, 31);
+            botonPerfil.Size = new Size(105, 31);
             botonPerfil.TabIndex = 2;
             botonPerfil.Text = "Perfil";
             botonPerfil.UseVisualStyleBackColor = true;
@@ -77,10 +78,10 @@
             // 
             // botonPublicar
             // 
-            botonPublicar.Location = new Point(21, 148);
+            botonPublicar.Location = new Point(779, 30);
             botonPublicar.Margin = new Padding(3, 4, 3, 4);
             botonPublicar.Name = "botonPublicar";
-            botonPublicar.Size = new Size(86, 31);
+            botonPublicar.Size = new Size(105, 32);
             botonPublicar.TabIndex = 3;
             botonPublicar.Text = "Publicar";
             botonPublicar.UseVisualStyleBackColor = true;
@@ -90,11 +91,12 @@
             // 
             pictureBox2.BackgroundImage = Properties.Resources.perfilPredeterminado;
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.InitialImage = Properties.Resources.perfilPredeterminado;
-            pictureBox2.Location = new Point(21, 16);
+            pictureBox2.Location = new Point(21, 41);
             pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(86, 85);
+            pictureBox2.Size = new Size(105, 107);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
@@ -124,17 +126,17 @@
             // comboCategoriaFiltro
             // 
             comboCategoriaFiltro.FormattingEnabled = true;
-            comboCategoriaFiltro.Location = new Point(123, 30);
+            comboCategoriaFiltro.Location = new Point(144, 30);
             comboCategoriaFiltro.Name = "comboCategoriaFiltro";
-            comboCategoriaFiltro.Size = new Size(139, 28);
+            comboCategoriaFiltro.Size = new Size(118, 28);
             comboCategoriaFiltro.TabIndex = 8;
             comboCategoriaFiltro.Text = "Categoría";
             // 
             // botonModerar
             // 
-            botonModerar.Location = new Point(21, 186);
+            botonModerar.Location = new Point(21, 194);
             botonModerar.Name = "botonModerar";
-            botonModerar.Size = new Size(86, 29);
+            botonModerar.Size = new Size(105, 29);
             botonModerar.TabIndex = 9;
             botonModerar.Text = "Moderar";
             botonModerar.UseVisualStyleBackColor = true;
@@ -171,7 +173,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Indigo;
+            BackColor = Color.CornflowerBlue;
             ClientSize = new Size(896, 748);
             Controls.Add(botonModerar);
             Controls.Add(comboCategoriaFiltro);

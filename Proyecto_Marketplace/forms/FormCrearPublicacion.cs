@@ -1,4 +1,10 @@
 ﻿using Proyecto_Marketplace.clases;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+using System.Drawing;
+using System;
 
 namespace Proyecto_Marketplace.forms
 {
@@ -6,7 +12,8 @@ namespace Proyecto_Marketplace.forms
     {
         private RepositorioPublicaciones repoPublicaciones;
         private Usuario usuarioActual;
-        private string rutaImagenSeleccionada;
+
+        private List<string> rutasImagenesSeleccionadas = new List<string>();
 
         public FormCrearPublicacion(Usuario usuarioActual, RepositorioPublicaciones repoPublicaciones)
         {
@@ -14,7 +21,7 @@ namespace Proyecto_Marketplace.forms
             this.repoPublicaciones = repoPublicaciones;
             this.usuarioActual = usuarioActual;
 
-            // --- Cargar las categorías ---
+            // --- Carga de ComboBox de Categorías ---
             comboCategoria.Items.Add("Tecnología");
             comboCategoria.Items.Add("Hogar y Muebles");
             comboCategoria.Items.Add("Indumentaria");
@@ -27,63 +34,47 @@ namespace Proyecto_Marketplace.forms
 
         private void botonPublicar_Click_1(object sender, EventArgs e)
         {
-
-            int limitePublicaciones = 5;
-
-            
-            int publicacionesActuales = repoPublicaciones.Publicaciones
-                .Count(p => p.UsuarioCreador == usuarioActual.NombreUsuario &&
-                              p.EstadoVenta == "Disponible");
-
-            
-            if (publicacionesActuales >= limitePublicaciones)
-            {
-                MessageBox.Show($"Ha alcanzado el límite de {limitePublicaciones} publicaciones activas.", "Límite alcanzado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+          
             if (string.IsNullOrWhiteSpace(textBoxTitulo.Text) ||
-                string.IsNullOrWhiteSpace(textBoxPrecio.Text) ||
                 string.IsNullOrWhiteSpace(textBoxDescripcion.Text))
             {
-                MessageBox.Show("Complete todos los campos obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El Título y la Descripción son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!decimal.TryParse(textBoxPrecio.Text, out decimal precio))
+            string precioParaGuardar = "0"; // Valor por defecto si está vacío
+
+            if (!string.IsNullOrWhiteSpace(textBoxPrecio.Text))
             {
-                MessageBox.Show("El precio debe ser numérico", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else if (precio <= 0)
-            {
-                MessageBox.Show("El precio debe ser mayor que cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (!decimal.TryParse(textBoxPrecio.Text, out decimal precio))
+                {
+                    MessageBox.Show("El precio debe ser numérico", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (precio < 0)
+                {
+                    MessageBox.Show("El precio no puede ser negativo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Si es válido y no está vacío, usamos el texto del input
+                precioParaGuardar = textBoxPrecio.Text;
             }
 
-            if (rutaImagenSeleccionada == null)
-            {
-                MessageBox.Show("Seleccione una imagen antes de publicar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
-            if (comboCategoria.SelectedItem == null)
-            {
-                MessageBox.Show("Seleccione una categoría", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             string categoriaSeleccionada = comboCategoria.SelectedItem.ToString();
-
             string tipo = radioButtonProducto.Checked ? "Producto" : "Servicio";
 
-            // --- Modificamos la creación de la publicación ---
             Publicacion nueva;
             if (tipo == "Producto")
             {
+               
                 nueva = new Publicacion(
                     textBoxTitulo.Text,
-                    textBoxPrecio.Text,
+                    precioParaGuardar, // Usa el precio validado
                     textBoxDescripcion.Text,
-                    rutaImagenSeleccionada, 
+                    rutasImagenesSeleccionadas,
                     usuarioActual.NombreUsuario,
                     usuarioActual.contacto,
                     "Disponible",
@@ -93,17 +84,19 @@ namespace Proyecto_Marketplace.forms
             }
             else
             {
+                
                 nueva = new Publicacion(
                     textBoxTitulo.Text,
-                    rutaImagenSeleccionada, 
+                    precioParaGuardar, 
+                    rutasImagenesSeleccionadas,
                     textBoxDescripcion.Text,
                     usuarioActual.NombreUsuario,
                     usuarioActual.contacto,
                     usuarioActual.NombreUsuario,
                     categoriaSeleccionada
                 );
+               
             }
-            // --- Fin de la modificación ---
 
             repoPublicaciones.AgregarPublicacion(nueva);
             repoPublicaciones.GuardarPublicaciones();
@@ -113,13 +106,15 @@ namespace Proyecto_Marketplace.forms
             this.Close();
         }
 
-        // ... (Tu código de botonSeleccionarImagen_Click_1 y botonVolverAtras_Click se mantiene igual) ...
         private void botonSeleccionarImagen_Click_1(object sender, EventArgs e)
         {
             using (OpenFileDialog dialogo = new OpenFileDialog())
             {
-                dialogo.Title = "Seleccionar nueva foto de Publicación";
+                dialogo.Title = "Seleccionar foto(s) de Publicación";
                 dialogo.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp";
+
+                // Permitir la selección de múltiples archivos
+                dialogo.Multiselect = true;
 
                 if (dialogo.ShowDialog() == DialogResult.OK)
                 {
@@ -127,8 +122,7 @@ namespace Proyecto_Marketplace.forms
                     if (!Directory.Exists(carpetaFotos))
                         Directory.CreateDirectory(carpetaFotos);
 
-                    string nombreArchivo = $"{Guid.NewGuid()}{Path.GetExtension(dialogo.FileName)}";
-                    string rutaDestino = Path.Combine(carpetaFotos, nombreArchivo);
+                    rutasImagenesSeleccionadas.Clear();
 
                     if (pictureBoxPublicacion.Image != null)
                     {
@@ -136,16 +130,27 @@ namespace Proyecto_Marketplace.forms
                         pictureBoxPublicacion.Image = null;
                     }
 
-                    File.Copy(dialogo.FileName, rutaDestino, true);
-
-                    using (var fs = new FileStream(rutaDestino, FileMode.Open, FileAccess.Read))
+                    // Iteramos sobre todos los archivos seleccionados
+                    foreach (string rutaOriginal in dialogo.FileNames)
                     {
-                        pictureBoxPublicacion.Image = new Bitmap(fs);
+                        string nombreArchivo = $"{Guid.NewGuid()}{Path.GetExtension(rutaOriginal)}";
+                        string rutaDestino = Path.Combine(carpetaFotos, nombreArchivo);
+
+                        // Copiamos el archivo al directorio local
+                        File.Copy(rutaOriginal, rutaDestino, true);
+                        rutasImagenesSeleccionadas.Add(rutaDestino);
                     }
 
-                    rutaImagenSeleccionada = rutaDestino;
+                    // Mostramos la primera imagen de la lista en el picturebox de previsualizacion
+                    if (rutasImagenesSeleccionadas.Count > 0)
+                    {
+                        using (var fs = new FileStream(rutasImagenesSeleccionadas[0], FileMode.Open, FileAccess.Read))
+                        {
+                            pictureBoxPublicacion.Image = new Bitmap(fs);
+                        }
+                    }
 
-                    MessageBox.Show("Imagen actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Se cargaron {rutasImagenesSeleccionadas.Count} imagen(es) correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

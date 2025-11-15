@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrearPublicacion));
             label1 = new Label();
             textBoxTitulo = new TextBox();
             label2 = new Label();
@@ -52,7 +53,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label1.ForeColor = SystemColors.Control;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(45, 68);
             label1.Name = "label1";
             label1.Size = new Size(73, 28);
@@ -79,7 +80,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label3.ForeColor = SystemColors.Control;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(45, 128);
             label3.Name = "label3";
             label3.Size = new Size(76, 28);
@@ -90,7 +91,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label4.ForeColor = SystemColors.Control;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(45, 304);
             label4.Name = "label4";
             label4.Size = new Size(128, 28);
@@ -109,7 +110,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label6.ForeColor = SystemColors.Control;
+            label6.ForeColor = Color.Black;
             label6.Location = new Point(45, 192);
             label6.Name = "label6";
             label6.Size = new Size(203, 28);
@@ -159,7 +160,7 @@
             // radioButtonServicio
             // 
             radioButtonServicio.AutoSize = true;
-            radioButtonServicio.ForeColor = SystemColors.Control;
+            radioButtonServicio.ForeColor = Color.Black;
             radioButtonServicio.Location = new Point(263, 196);
             radioButtonServicio.Margin = new Padding(3, 4, 3, 4);
             radioButtonServicio.Name = "radioButtonServicio";
@@ -172,8 +173,8 @@
             // radioButtonProducto
             // 
             radioButtonProducto.AutoSize = true;
-            radioButtonProducto.ForeColor = SystemColors.Control;
-            radioButtonProducto.Location = new Point(381, 192);
+            radioButtonProducto.ForeColor = Color.Black;
+            radioButtonProducto.Location = new Point(364, 197);
             radioButtonProducto.Margin = new Padding(3, 4, 3, 4);
             radioButtonProducto.Name = "radioButtonProducto";
             radioButtonProducto.Size = new Size(90, 24);
@@ -184,10 +185,12 @@
             // 
             // pictureBoxPublicacion
             // 
+            pictureBoxPublicacion.Image = (Image)resources.GetObject("pictureBoxPublicacion.Image");
             pictureBoxPublicacion.Location = new Point(627, 64);
             pictureBoxPublicacion.Margin = new Padding(3, 4, 3, 4);
             pictureBoxPublicacion.Name = "pictureBoxPublicacion";
             pictureBoxPublicacion.Size = new Size(246, 268);
+            pictureBoxPublicacion.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxPublicacion.TabIndex = 17;
             pictureBoxPublicacion.TabStop = false;
             // 
@@ -225,7 +228,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Indigo;
+            BackColor = Color.CornflowerBlue;
             ClientSize = new Size(914, 600);
             Controls.Add(comboCategoria);
             Controls.Add(botonEliminarFoto);

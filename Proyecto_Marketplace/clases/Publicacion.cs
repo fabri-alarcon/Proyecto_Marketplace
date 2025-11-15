@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json; // Importante para [JsonIgnore]
+using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Proyecto_Marketplace.clases
 {
@@ -12,24 +13,35 @@ namespace Proyecto_Marketplace.clases
         public string Titulo { get; set; }
         public string Descripcion { get; set; }
         public string Precio { get; set; } = null!;
-        public string RutaImagen { get; set; } = null!;
+
+        public List<string> RutasImagenes { get; set; } = new List<string>();
 
         [JsonIgnore]
         public Image ImagenCargada
         {
             get
             {
-                if (string.IsNullOrEmpty(RutaImagen) || !File.Exists(RutaImagen))
+                // Usa a primeira imagem da lista para a pré-visualização (e.g., PublicacionCard)
+                string ruta = RutasImagenes.FirstOrDefault();
+
+                if (string.IsNullOrEmpty(ruta) || !File.Exists(ruta))
                 {
                     string placeholderPath = Path.Combine(Application.StartupPath, "media", "placeholder.png");
                     if (File.Exists(placeholderPath))
                         return Image.FromFile(placeholderPath);
-                    return new Bitmap(100, 100); // Evitamos devolver null
+                    return new Bitmap(100, 100);
                 }
 
-                using (var fs = new FileStream(RutaImagen, FileMode.Open, FileAccess.Read))
+                try
                 {
-                    return new Bitmap(fs);
+                    using (var fs = new FileStream(ruta, FileMode.Open, FileAccess.Read))
+                    {
+                        return new Bitmap(fs);
+                    }
+                }
+                catch
+                {
+                    return new Bitmap(100, 100);
                 }
             }
         }
@@ -40,51 +52,47 @@ namespace Proyecto_Marketplace.clases
         public string EstadoModeracion { get; set; }
         public string Categoria { get; set; }
         public string Tipo { get; set; }
-
-        // --- INICIO DE LA CORRECCIÓN ---
-        // Cambiamos 'private set' por 'set' para que JSON pueda escribirlos
         public string UsuarioCreador { get; set; }
         public DateTime FechaPublicacion { get; set; }
-        // --- FIN DE LA CORRECCIÓN ---
 
-
-        // Constructor vacío (default) para que Newtonsoft.Json pueda deserializar
         public Publicacion()
         {
-
         }
 
-        // Constructor modificado
-        public Publicacion(string titulo, string precio, string descripcion, string rutaImagen, string ubicacion, string contacto, string estadoVenta, string usuario, string categoria)
+        // Construtor Producto (9 argumentos) - Sin cambios
+        public Publicacion(string titulo, string precio, string descripcion, List<string> rutasImagenes, string ubicacion, string contacto, string estadoVenta, string usuario, string categoria)
         {
             Titulo = titulo;
-            Precio = precio;
-            RutaImagen = rutaImagen;
+            Precio = precio; // <-- Se guarda
+            RutasImagenes = rutasImagenes ?? new List<string>();
             Descripcion = descripcion;
             Ubicacion = ubicacion;
             Contacto = contacto;
             EstadoVenta = estadoVenta;
             Tipo = "Producto";
             UsuarioCreador = usuario;
-            FechaPublicacion = DateTime.Now; // Cambiado a .Now para hora local
+            FechaPublicacion = DateTime.Now;
             EstadoModeracion = "Pendiente";
             Categoria = categoria;
         }
 
-        // Constructor de Servicio modificado
-        public Publicacion(string titulo, string rutaImagen, string descripcion, string ubicacion, string contacto, string usuario, string categoria)
+        // --- INICIO DE CORRECCIÓN ---
+        // Construtor de Serviço (Ahora 8 argumentos)
+        public Publicacion(string titulo, string precio, List<string> rutasImagenes, string descripcion, string ubicacion, string contacto, string usuario, string categoria)
         {
             Titulo = titulo;
-            RutaImagen = rutaImagen;
+            Precio = precio; // <-- ¡CORREGIDO! Ahora guarda el precio
+            RutasImagenes = rutasImagenes ?? new List<string>();
             Descripcion = descripcion;
             Ubicacion = ubicacion;
             Contacto = contacto;
             Tipo = "Servicio";
             UsuarioCreador = usuario;
-            FechaPublicacion = DateTime.Now; // Cambiado a .Now para hora local
-            EstadoVenta = "Disponible";
+            FechaPublicacion = DateTime.Now;
+            EstadoVenta = "Disponible"; // Los servicios no se "venden"
             EstadoModeracion = "Pendiente";
             Categoria = categoria;
         }
+        // --- FIN DE CORRECCIÓN ---
     }
 }

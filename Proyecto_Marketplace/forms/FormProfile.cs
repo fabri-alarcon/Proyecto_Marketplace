@@ -3,22 +3,20 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using System.Linq; // <-- ¡IMPORTANTE! Añade esta línea
+using System.Linq; 
 
 namespace Proyecto_Marketplace.forms
 {
     public partial class FormProfile : Form
     {
         private Usuario usuarioActual;
-        private RepositorioPublicaciones repoPublicaciones; // <-- Para el historial
+        private RepositorioPublicaciones repoPublicaciones;
         public event Action FotoPerfilCambiada;
-
-        // --- CONSTRUCTOR MODIFICADO (ahora recibe el repo) ---
         public FormProfile(Usuario usuario, RepositorioPublicaciones repo)
         {
             InitializeComponent();
             usuarioActual = usuario ?? throw new ArgumentNullException(nameof(usuario));
-            repoPublicaciones = repo; // Guardamos el repositorio
+            repoPublicaciones = repo;
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -26,13 +24,13 @@ namespace Proyecto_Marketplace.forms
 
             this.Load += FormPerfil_Load;
 
-            // Carga los datos en los TextBoxes
+            //Relleno de campos...
             txtNombreUsuario.Text = usuarioActual.NombreUsuario;
             txtNombreUsuario.ReadOnly = true;
             txtNombreUsuario.BackColor = Color.Gray;
             txtContacto.Text = usuarioActual.contacto;
             txtCuil.Text = usuarioActual.Cuil;
-
+            labelNombreUsuario.Text = usuarioActual.NombreUsuario;
             btnGuardarCambios.Click += btnGuardarCambios_Click;
         }
 
@@ -52,112 +50,109 @@ namespace Proyecto_Marketplace.forms
             CargarHistorialPublicaciones();
         }
 
-        // --- NUEVO MÉTODO PARA MOSTRAR EL HISTORIAL ---
+
         private void CargarHistorialPublicaciones()
-{
-    flowHistorial.Controls.Clear();
-
-    var misPublicaciones = repoPublicaciones.Publicaciones
-        .Where(p => p.UsuarioCreador == usuarioActual.NombreUsuario)
-        .OrderByDescending(p => p.FechaPublicacion) 
-        .ToList();
-
-    if (misPublicaciones.Count == 0)
-    {
-        Label lblVacio = new Label();
-        lblVacio.Text = "Aún no has creado publicaciones.";
-        lblVacio.ForeColor = Color.White; 
-        lblVacio.AutoSize = true;
-        flowHistorial.Controls.Add(lblVacio);
-        return;
-    }
-
-    foreach (var pub in misPublicaciones)
-    {
-        Panel miniPanel = new Panel
         {
-            Width = 150, 
-            Height = 150,
-            BackColor = Color.Indigo, 
-            BorderStyle = BorderStyle.FixedSingle, 
-            Margin = new Padding(5),
-            Tag = pub,
-            Cursor = Cursors.Hand // <-- (Opcional: cambia el cursor a una manito)
-        };
-        
-        PictureBox miniPb = new PictureBox
-        {
-            Image = CargarImagenSegura(pub.RutaImagen), 
-            SizeMode = PictureBoxSizeMode.Zoom,
-            Dock = DockStyle.Top,
-            Height = 100,
-            BackColor = Color.Transparent
-        };
+            // Asumiendo que 'flowHistorial' existe
+            flowHistorial.Controls.Clear();
 
-        Label miniTitulo = new Label
-        {
-            Text = pub.Titulo,
-            ForeColor = Color.White,
-            Dock = DockStyle.Bottom,
-            TextAlign = ContentAlignment.MiddleCenter,
-            Height = 50
-        };
-        
-        // Conexión de la animación "Hover" (que ya tenías)
-        miniPanel.MouseEnter += new EventHandler(miniPanel_MouseEnter);
-        miniPanel.MouseLeave += new EventHandler(miniPanel_MouseLeave);
-        miniPb.MouseEnter += new EventHandler(miniPanel_MouseEnter);
-        miniPb.MouseLeave += new EventHandler(miniPanel_MouseLeave);
-        miniTitulo.MouseEnter += new EventHandler(miniPanel_MouseEnter);
-        miniTitulo.MouseLeave += new EventHandler(miniPanel_MouseLeave);
-        
-        // --- ¡INICIO DE LA NUEVA MODIFICACIÓN! ---
-        // Conectamos el evento Click al panel y a sus hijos
-        miniPanel.Click += new EventHandler(miniPanel_Click);
-        miniPb.Click += new EventHandler(miniPanel_Click);
-        miniTitulo.Click += new EventHandler(miniPanel_Click);
-        // --- FIN DE LA NUEVA MODIFICACIÓN ---
-        
-        miniPanel.Controls.Add(miniTitulo);
-        miniPanel.Controls.Add(miniPb);
-        flowHistorial.Controls.Add(miniPanel);
-    }
-}
+            var misPublicaciones = repoPublicaciones.Publicaciones
+                .Where(p => p.UsuarioCreador == usuarioActual.NombreUsuario)
+                .OrderByDescending(p => p.FechaPublicacion)
+                .ToList();
+
+            if (misPublicaciones.Count == 0)
+            {
+                Label lblVacio = new Label();
+                lblVacio.Text = "Aún no has creado publicaciones.";
+                lblVacio.ForeColor = Color.White;
+                lblVacio.AutoSize = true;
+                flowHistorial.Controls.Add(lblVacio);
+                return;
+            }
+
+            foreach (var pub in misPublicaciones)
+            {
+                Panel miniPanel = new Panel
+                {
+                    Width = 150,
+                    Height = 150,
+                    BackColor = Color.White,
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(5),
+                    Tag = pub,
+                    Cursor = Cursors.Hand
+                };
+
+                PictureBox miniPb = new PictureBox
+                {
+
+                    Image = CargarImagenSegura(pub.RutasImagenes.FirstOrDefault()),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Dock = DockStyle.Top,
+                    Height = 100,
+                    BackColor = Color.Transparent
+                };
+
+                Label miniTitulo = new Label
+                {
+                    Text = pub.Titulo,
+                    ForeColor = Color.Black,
+                    Dock = DockStyle.Bottom,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Height = 50
+                };
+                //Eventos de mouse
+                miniPanel.MouseEnter += new EventHandler(miniPanel_MouseEnter);
+                miniPanel.MouseLeave += new EventHandler(miniPanel_MouseLeave);
+                miniPb.MouseEnter += new EventHandler(miniPanel_MouseEnter);
+                miniPb.MouseLeave += new EventHandler(miniPanel_MouseLeave);
+                miniTitulo.MouseEnter += new EventHandler(miniPanel_MouseEnter);
+                miniTitulo.MouseLeave += new EventHandler(miniPanel_MouseLeave);
+
+                miniPanel.Click += new EventHandler(miniPanel_Click);
+                miniPb.Click += new EventHandler(miniPanel_Click);
+                miniTitulo.Click += new EventHandler(miniPanel_Click);
+
+                miniPanel.Controls.Add(miniTitulo);
+                miniPanel.Controls.Add(miniPb);
+                flowHistorial.Controls.Add(miniPanel);
+            }
+        }
+
         private void miniPanel_Click(object sender, EventArgs e)
         {
-            // 1. Identificamos qué control disparó el evento (Panel, Label o PictureBox)
+            //Identifico qué control disparó el evento (Panel, Label o PictureBox)
             Control control = sender as Control;
 
-            // 2. Si fue un hijo (Label/PictureBox), subimos al Panel principal
+            //Si fue un hijo (Label/PictureBox), subimos al Panel principal
             if (control is not Panel)
             {
                 control = control.Parent;
             }
             Panel panel = control as Panel;
 
-            // 3. Obtenemos la publicación que guardamos en el Tag
+            //Obtenemos la publicación que guardamos en el Tag
             if (panel != null && panel.Tag is Publicacion pub)
             {
-                // 4. ¡Abrimos FormPublicacion (la ventana de detalle)!
-                // Le pasamos el usuario actual y la publicación en la que se hizo clic.
+                //Abre FormPublicacion
                 FormPublicacion ventanaDetalle = new FormPublicacion(usuarioActual, pub);
                 ventanaDetalle.ShowDialog();
             }
         }
-        // --- NUEVOS MÉTODOS PARA LA ANIMACIÓN "HOVER" ---
         private void miniPanel_MouseEnter(object sender, EventArgs e)
         {
             Control control = sender as Control;
-            if (control is not Panel) // Si es el Label o PictureBox
+            if (control is not Panel)
             {
-                control = control.Parent; // Sube al Panel
+                control = control.Parent;
             }
             Panel panel = control as Panel;
 
             if (panel != null)
             {
-                panel.BackColor = Color.MediumPurple; // Color de resaltado
-                panel.BorderStyle = BorderStyle.Fixed3D; // Borde resaltado
+                panel.BackColor = Color.LightGray;
+                panel.BorderStyle = BorderStyle.Fixed3D;
             }
         }
 
@@ -172,12 +167,11 @@ namespace Proyecto_Marketplace.forms
 
             if (panel != null)
             {
-                panel.BackColor = Color.Indigo; // Color original
-                panel.BorderStyle = BorderStyle.FixedSingle; // Borde original
+                panel.BackColor = Color.White;
+                panel.BorderStyle = BorderStyle.FixedSingle;
             }
         }
 
-        // --- FUNCIÓN AUXILIAR PARA CARGAR IMÁGENES ---
         private Image CargarImagenSegura(string ruta)
         {
             try
@@ -199,10 +193,6 @@ namespace Proyecto_Marketplace.forms
             return new Bitmap(100, 100);
         }
 
-        //
-        // --- (AQUÍ VA EL RESTO DE TU CÓDIGO EXISTENTE) ---
-        // (btnGuardarCambios_Click, boton_cambiarFoto_Click, boton_eliminarFoto_Click, etc.)
-        //
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
@@ -221,7 +211,14 @@ namespace Proyecto_Marketplace.forms
                 return;
             }
 
-            // (Aquí deberías añadir la validación de CUIL/Contacto duplicado)
+            // Validación de Contacto (ej: 6 a 15 dígitos)
+            if (nuevoContacto.Length < 6 || nuevoContacto.Length > 15)
+            {
+                MessageBox.Show("El número de Contacto no parece válido. Debe tener entre 6 y 15 dígitos.", "Error de Contacto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validación de duplicados (Usa la clase estática RepositorioUsuarios)
             if (nuevoCuil != usuarioActual.Cuil && RepositorioUsuarios.ExisteCuil(nuevoCuil))
             {
                 MessageBox.Show("Ese CUIL ya está en uso por otra cuenta.", "Error"); return;
@@ -333,7 +330,7 @@ namespace Proyecto_Marketplace.forms
 
         private void flowHistorial_Click(object sender, EventArgs e)
         {
-
+            // Este método está vacío.
         }
     }
 }

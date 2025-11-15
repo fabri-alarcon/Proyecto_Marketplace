@@ -20,8 +20,6 @@ namespace Proyecto_Marketplace
 
         public Usuario UsuarioLogeado { get; private set; }
 
-
-        // --- ESTE ES EL BOTÓN DE INICIAR SESIÓN ---
         private void botonIniciarSesion_Click(object sender, EventArgs e)
         {
             string nombre = textUsuario.Text.Trim();
@@ -61,8 +59,6 @@ namespace Proyecto_Marketplace
                 MessageBox.Show("Usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // --- ESTOS SON LOS OTROS BOTONES ---
 
         private void botonRegistrarse_Click(object sender, EventArgs e)
         {

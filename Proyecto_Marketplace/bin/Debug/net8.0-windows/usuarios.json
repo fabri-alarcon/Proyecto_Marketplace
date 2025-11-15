@@ -7,14 +7,5 @@
     "IsEmailVerified": true,
     "NombreUsuario": "admin",
     "Contraseña": "admin"
-  },
-  {
-    "contacto": "87127371237123",
-    "Rol": "Usuario",
-    "Cuil": "20462478098",
-    "Email": "josephwantstosleep@gmail.com",
-    "IsEmailVerified": true,
-    "NombreUsuario": "Facun",
-    "Contraseña": "Facundo2004"
   }
 ]

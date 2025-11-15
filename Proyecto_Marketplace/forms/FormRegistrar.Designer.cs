@@ -83,7 +83,7 @@ namespace Proyecto_Marketplace.forms
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.Control;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(217, 152);
             label2.Name = "label2";
             label2.Size = new Size(89, 28);
@@ -94,7 +94,7 @@ namespace Proyecto_Marketplace.forms
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.Control;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(217, 229);
             label3.Name = "label3";
             label3.Size = new Size(123, 28);
@@ -105,7 +105,7 @@ namespace Proyecto_Marketplace.forms
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.Control;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(217, 307);
             label4.Name = "label4";
             label4.Size = new Size(224, 28);
@@ -145,7 +145,7 @@ namespace Proyecto_Marketplace.forms
             // 
             labelContacto.AutoSize = true;
             labelContacto.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelContacto.ForeColor = SystemColors.Control;
+            labelContacto.ForeColor = Color.Black;
             labelContacto.Location = new Point(217, 387);
             labelContacto.Name = "labelContacto";
             labelContacto.Size = new Size(220, 28);
@@ -165,7 +165,7 @@ namespace Proyecto_Marketplace.forms
             // 
             labelCuil.AutoSize = true;
             labelCuil.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelCuil.ForeColor = SystemColors.Control;
+            labelCuil.ForeColor = SystemColors.ActiveCaptionText;
             labelCuil.Location = new Point(217, 467);
             labelCuil.Name = "labelCuil";
             labelCuil.Size = new Size(206, 28);
@@ -193,7 +193,7 @@ namespace Proyecto_Marketplace.forms
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(217, 532);
             label5.Name = "label5";
             label5.Size = new Size(64, 28);
@@ -204,7 +204,7 @@ namespace Proyecto_Marketplace.forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Indigo;
+            BackColor = Color.CornflowerBlue;
             ClientSize = new Size(667, 681);
             Controls.Add(label5);
             Controls.Add(txtEmail);

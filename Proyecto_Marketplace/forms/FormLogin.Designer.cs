@@ -41,29 +41,32 @@
             // 
             // botonIniciarSesion
             // 
-            botonIniciarSesion.Location = new Point(396, 142);
+            botonIniciarSesion.Location = new Point(453, 189);
+            botonIniciarSesion.Margin = new Padding(3, 4, 3, 4);
             botonIniciarSesion.Name = "botonIniciarSesion";
-            botonIniciarSesion.Size = new Size(159, 32);
+            botonIniciarSesion.Size = new Size(182, 43);
             botonIniciarSesion.TabIndex = 0;
-            botonIniciarSesion.Text = "iniciar sesion";
+            botonIniciarSesion.Text = "Iniciar Sesion";
             botonIniciarSesion.UseVisualStyleBackColor = true;
             botonIniciarSesion.Click += botonIniciarSesion_Click;
             // 
             // botonRegistrarse
             // 
-            botonRegistrarse.Location = new Point(396, 244);
+            botonRegistrarse.Location = new Point(453, 325);
+            botonRegistrarse.Margin = new Padding(3, 4, 3, 4);
             botonRegistrarse.Name = "botonRegistrarse";
-            botonRegistrarse.Size = new Size(159, 32);
+            botonRegistrarse.Size = new Size(182, 43);
             botonRegistrarse.TabIndex = 1;
-            botonRegistrarse.Text = "registrarse";
+            botonRegistrarse.Text = "Registrarse";
             botonRegistrarse.UseVisualStyleBackColor = true;
             botonRegistrarse.Click += botonRegistrarse_Click;
             // 
             // botonContinuarInvitado
             // 
-            botonContinuarInvitado.Location = new Point(396, 282);
+            botonContinuarInvitado.Location = new Point(453, 376);
+            botonContinuarInvitado.Margin = new Padding(3, 4, 3, 4);
             botonContinuarInvitado.Name = "botonContinuarInvitado";
-            botonContinuarInvitado.Size = new Size(159, 32);
+            botonContinuarInvitado.Size = new Size(182, 43);
             botonContinuarInvitado.TabIndex = 2;
             botonContinuarInvitado.Text = "Continuar como invitado";
             botonContinuarInvitado.UseVisualStyleBackColor = true;
@@ -74,45 +77,50 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Black", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(12, 60);
+            label1.Location = new Point(14, 80);
             label1.Name = "label1";
-            label1.Size = new Size(0, 41);
+            label1.Size = new Size(0, 52);
             label1.TabIndex = 3;
             // 
             // pictureBox1
             // 
             pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(18, 29);
+            pictureBox1.Location = new Point(21, 39);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(344, 306);
+            pictureBox1.Size = new Size(393, 408);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // textUsuario
             // 
-            textUsuario.Location = new Point(396, 60);
+            textUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textUsuario.Location = new Point(453, 80);
+            textUsuario.Margin = new Padding(3, 4, 3, 4);
             textUsuario.Name = "textUsuario";
             textUsuario.PlaceholderText = "Ingrese Usuario";
-            textUsuario.Size = new Size(159, 23);
+            textUsuario.Size = new Size(181, 27);
             textUsuario.TabIndex = 5;
             // 
             // textContrasenia
             // 
-            textContrasenia.Location = new Point(396, 99);
+            textContrasenia.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textContrasenia.Location = new Point(453, 132);
+            textContrasenia.Margin = new Padding(3, 4, 3, 4);
             textContrasenia.Name = "textContrasenia";
             textContrasenia.PlaceholderText = "Ingrese Contraseña";
-            textContrasenia.Size = new Size(159, 23);
+            textContrasenia.Size = new Size(181, 27);
             textContrasenia.TabIndex = 6;
             textContrasenia.UseSystemPasswordChar = true;
             // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Indigo;
-            ClientSize = new Size(584, 361);
+            BackColor = Color.CornflowerBlue;
+            ClientSize = new Size(667, 481);
             Controls.Add(textContrasenia);
             Controls.Add(textUsuario);
             Controls.Add(pictureBox1);
@@ -120,6 +128,7 @@
             Controls.Add(botonContinuarInvitado);
             Controls.Add(botonRegistrarse);
             Controls.Add(botonIniciarSesion);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormLogin";
             Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

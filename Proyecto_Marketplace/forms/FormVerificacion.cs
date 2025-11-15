@@ -1,4 +1,4 @@
-﻿using Proyecto_Marketplace.clases; // <-- ¡ESTA LÍNEA ES LA SOLUCIÓN!
+﻿using Proyecto_Marketplace.clases;
 
 namespace Proyecto_Marketplace.forms
 {
@@ -18,15 +18,14 @@ namespace Proyecto_Marketplace.forms
         {
             if (txtCodigo.Text.Trim() == codigoCorrecto)
             {
-                // ¡Código correcto!
+                //Código correcto
                 usuarioAVerificar.IsEmailVerified = true;
 
-                // Ahora sí encontrará esta clase
                 RepositorioUsuarios.ActualizarUsuario(usuarioAVerificar);
 
                 MessageBox.Show("¡Email verificado con éxito! Ahora puedes iniciar sesión.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Cerramos este formulario y el de Registro
+                // Cierro este formulario y el de Registro
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

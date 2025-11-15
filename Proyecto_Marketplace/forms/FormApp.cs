@@ -1,7 +1,13 @@
 ﻿using Proyecto_Marketplace.clases;
 using Proyecto_Marketplace.forms;
 using System.Text;
-using Proyecto_Marketplace.Controls; 
+using Proyecto_Marketplace.Controls;
+using System.Drawing;
+using System.IO;     
+using System.Linq;   
+using System.Windows.Forms;
+using System;
+using System.Collections.Generic; 
 
 namespace Proyecto_Marketplace
 {
@@ -10,6 +16,8 @@ namespace Proyecto_Marketplace
         private Usuario usuarioActual;
         private FlowLayoutPanel flowPanel;
         private RepositorioPublicaciones repoPublicaciones = new RepositorioPublicaciones();
+
+
         private string filtroModeracionActual = "Aprobado";
 
         public FormApp(Usuario usuario)
@@ -23,13 +31,14 @@ namespace Proyecto_Marketplace
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new Size(800, 600);
 
-            // --- CORRECCIÓN DE ERROR DE NULOS (de antes) ---
+            // --- Carga de Foto de Perfil
             string rutaFoto = usuarioActual.obtenerRutaFotoPerfil();
             if (!string.IsNullOrEmpty(rutaFoto) && File.Exists(rutaFoto))
             {
                 pictureBox2.ImageLocation = rutaFoto;
             }
 
+            // --- Configuración del FlowLayoutPanel ---
             flowPanel = new FlowLayoutPanel
             {
                 Width = 760,
@@ -45,18 +54,26 @@ namespace Proyecto_Marketplace
 
             this.Load += FormApp_Load;
 
+            // --- Lógica de Visibilidad según Rol
             if (usuarioActual.NombreUsuario == "Invitado")
             {
                 botonCerrarSesion.Visible = false;
                 botonModerar.Visible = false;
+                botonPublicar.Visible = false; // Los invitados no pueden publicar
+                botonVolverLogin.Visible = true;
             }
             else
             {
                 botonCerrarSesion.Visible = true;
                 botonVolverLogin.Visible = false;
                 botonModerar.Visible = (usuarioActual.Rol == "Admin");
+
+                // Ocultar "Publicar" si es Admin, mostrar si es Usuario normal
+                botonPublicar.Visible = (usuarioActual.Rol != "Admin");
+               
             }
 
+            // --- Carga del ComboBox de Filtro de Categorías
             comboCategoriaFiltro.Items.Add("Todas");
             comboCategoriaFiltro.Items.Add("Tecnología");
             comboCategoriaFiltro.Items.Add("Hogar y Muebles");
@@ -67,65 +84,75 @@ namespace Proyecto_Marketplace
             comboCategoriaFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
             comboCategoriaFiltro.SelectedIndex = 0;
 
+            // --- Conexión de Eventos ---
             botonBuscar.Click += new EventHandler(AplicarFiltros_Click);
             botonModerar.Click += new EventHandler(BotonModerar_Click);
             comboCategoriaFiltro.SelectedIndexChanged += new EventHandler(AplicarFiltros_Click);
         }
 
-        // ========================
-        // EVENTO LOAD DEL FORM (¡CORREGIDO!)
-        // ========================
+
         private void FormApp_Load(object sender, EventArgs e)
         {
-            // --- ¡ESTA LÍNEA ES LA SOLUCIÓN! ---
-            // 1. Carga el archivo .json ANTES de hacer nada más.
             repoPublicaciones.CargarPublicaciones();
-            // --- FIN DE LA SOLUCIÓN ---
 
-            // 2. Ahora sí, comprueba si el archivo cargado estaba vacío.
             if (repoPublicaciones.Publicaciones.Count == 0)
             {
-                // Si estaba vacío, crea las muestras
+     
+                string RutaAuricular = Path.Combine(Application.StartupPath, "media", "auricularesImagen.jpeg");
+                string RutaTele = Path.Combine(Application.StartupPath, "media", "tele.jpeg");
+                string RutaAlbañil = Path.Combine(Application.StartupPath, "media", "revoque_apli.jpeg");
+
                 Publicacion p1 = new Publicacion(
                     "Auriculares Inalámbricos",
                     "232",
                     "Excelente calidad de sonido",
-                    "media/auricularesImagen.jpeg",
-                    "43232",
+                    new List<string> { RutaAuricular },
+                    "Centro", 
                     "3644175829",
                     "Disponible",
-                    "AdminDemo", // Usuario Creador de Muestra
+                    "AdminDemo",
                     "Tecnología"
                 );
-                p1.EstadoModeracion = "Aprobado"; // Fuerza la aprobación
+                p1.EstadoModeracion = "Aprobado";
 
                 Publicacion p2 = new Publicacion(
-                    "Enanos en venta",
-                    "500",
-                    "Alta precisión y diseño ergonómico",
-                    "media/auricularesImagen.jpeg",
-                    "43232",
-                    "3644544662",
-                    "Vendido",
-                    "AdminDemo", // Usuario Creador de Muestra
+                    "Vendo tele smart 42' ",
+                    "5000", // precio
+                    "¡Tecnología clave para disfrutar en familia!",
+                    new List<string> { RutaTele },
+                    "Ensanche Sur", 
+                    "000",
+                    "Disponible",
+                    "AdminDemo",
+                    "Tecnologia"
+                );
+                p2.EstadoModeracion = "Aprobado";
+                //La cantidad de parametros diferencian entre producto (9) y servicio (8)
+                // (titulo, precio, List<string>, descripcion, ubicacion, contacto, usuario, categoria)
+                Publicacion p3 = new Publicacion(
+                    "Ofrezco servicios de construcción de todo tipo",
+                    "100000", // precio
+                    new List<string> { RutaAlbañil },
+                    "Buena calidad de construcción",
+                    "A domicilio",
+                    "000",
+                    "AdminDemo",
                     "Otros"
                 );
-                p2.EstadoModeracion = "Aprobado"; // Fuerza la aprobación
+                p3.EstadoModeracion = "Aprobado";
 
                 repoPublicaciones.AgregarPublicacion(p1);
                 repoPublicaciones.AgregarPublicacion(p2);
-                // (AgregarPublicacion ya llama a GuardarPublicaciones)
+                repoPublicaciones.AgregarPublicacion(p3);
             }
 
             CargarSugerenciasBusqueda();
-            // 3. Muestra las publicaciones "Aprobadas" que se cargaron del JSON
             filtroModeracionActual = "Aprobado";
             MostrarPublicaciones();
         }
 
-        // ========================
+
         // FUNCIONES AUXILIARES
-        // ========================
         private Image CargarImagenSegura(string ruta)
         {
             try
@@ -173,27 +200,23 @@ namespace Proyecto_Marketplace
                                 p.Descripcion.ToLower().Contains(busqueda));
             }
 
-            
-
             foreach (var pub in publicacionesAMostrar)
             {
-                // 1. Creamos nuestra nueva tarjeta personalizada
                 PublicacionCard card = new PublicacionCard(pub);
-                card.Tag = pub; // Asignamos la publicación al Tag (para el clic)
-                card.Margin = new Padding(10); // El margen que tenías
+                card.Tag = pub;
+                card.Margin = new Padding(10);
 
-                // 2. Conectamos el clic (reutilizamos tu método AgregarClickRecursivo)
-                // Esto hará que la tarjeta Y sus hijos (imagen, texto) abran la publicación.
+                // Conectamos el clic principal (para abrir detalles)
                 AgregarClickRecursivo(card, Post_Click);
 
-                // 3. Lógica de Admin (El menú "...")
-                if (usuarioActual.Rol == "Admin")
+                // Lógica de 3 puntitos arriba del post
+                if (usuarioActual.Rol == "Admin" || pub.UsuarioCreador == usuarioActual.NombreUsuario)
                 {
                     Button btnMenu = new Button
                     {
                         Text = "...",
                         Tag = pub,
-                        Left = 150, // Posición en la esquina (200 - 30)
+                        Left = 150,
                         Top = 5,
                         Width = 25,
                         Height = 25,
@@ -201,9 +224,7 @@ namespace Proyecto_Marketplace
                     };
                     btnMenu.Click += BtnMenu_Click;
 
-                    
                     card.Controls.Add(btnMenu);
-                   
                     btnMenu.BringToFront();
                 }
 
@@ -226,20 +247,15 @@ namespace Proyecto_Marketplace
 
         private void Post_Click(object sender, EventArgs e)
         {
-            // 1. Identificamos qué control disparó el evento (puede ser la tarjeta, el texto o la imagen)
             Control control = sender as Control;
 
-            // 2. Escalamos hacia arriba en la jerarquía hasta encontrar la "tarjeta" principal
-            // (que es de tipo 'PublicacionCard')
             while (control != null && control is not PublicacionCard)
             {
                 control = control.Parent;
             }
 
-            // 3. Si encontramos la tarjeta (control) y no es nula...
             if (control is PublicacionCard card)
             {
-                // 4. obtenemos la publicación que guardamos en su 'Tag' y abrimos el detalle
                 if (card.Tag is Publicacion pub)
                 {
                     FormPublicacion ventana = new FormPublicacion(usuarioActual, pub);
@@ -252,18 +268,48 @@ namespace Proyecto_Marketplace
         {
             Button btn = sender as Button;
             Publicacion pubSeleccionada = btn.Tag as Publicacion;
+            if (pubSeleccionada == null) return;
 
-            if (pubSeleccionada != null)
+            if (usuarioActual.Rol == "Admin")
             {
+               
                 adminContextMenu.Tag = pubSeleccionada;
                 aprobarToolStripMenuItem.Visible = (filtroModeracionActual == "Pendiente");
                 adminContextMenu.Show(btn, new Point(0, btn.Height));
+            }
+            else if (pubSeleccionada.UsuarioCreador == usuarioActual.NombreUsuario)
+            {
+               
+                ContextMenuStrip userMenu = new ContextMenuStrip();
+
+                ToolStripMenuItem infoItem = new ToolStripMenuItem("Información");
+                infoItem.Tag = pubSeleccionada;
+                infoItem.Click += infoToolStripMenuItem_Click;
+
+                ToolStripMenuItem deleteItem = new ToolStripMenuItem("Eliminar");
+                deleteItem.Tag = pubSeleccionada;
+                deleteItem.Click += eliminarToolStripMenuItem_Click;
+
+                userMenu.Items.Add(infoItem);
+                userMenu.Items.Add(new ToolStripSeparator());
+                userMenu.Items.Add(deleteItem);
+
+                userMenu.Show(btn, new Point(0, btn.Height));
             }
         }
 
         private void aprobarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Publicacion pubAprobar = adminContextMenu.Tag as Publicacion;
+            Publicacion pubAprobar = null;
+            if (sender is ToolStripMenuItem itemAprobar)
+            {
+                pubAprobar = itemAprobar.Tag as Publicacion;
+            }
+
+            if (pubAprobar == null && (sender as ToolStripItem)?.Owner is ContextMenuStrip menu) // Fallback para Admin
+            {
+                pubAprobar = menu.Tag as Publicacion;
+            }
 
             if (pubAprobar != null)
             {
@@ -274,7 +320,19 @@ namespace Proyecto_Marketplace
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Publicacion pubAEliminar = adminContextMenu.Tag as Publicacion;
+            Publicacion pubAEliminar = null;
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            if (item != null)
+            {
+                pubAEliminar = item.Tag as Publicacion;
+            
+                if (pubAEliminar == null && item.Owner is ContextMenuStrip menu)
+                {
+                    pubAEliminar = menu.Tag as Publicacion;
+                }
+            }
+
 
             if (pubAEliminar != null)
             {
@@ -294,9 +352,23 @@ namespace Proyecto_Marketplace
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Publicacion pubInfo = adminContextMenu.Tag as Publicacion;
+            Publicacion pubInfo = null;
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            if (item != null)
+            { 
+
+                pubInfo = item.Tag as Publicacion;
+
+                if (pubInfo == null && item.Owner is ContextMenuStrip menu)
+                {
+                    pubInfo = menu.Tag as Publicacion;
+                }
+            }
+
             if (pubInfo == null) return;
 
+            // Se usa la clase estática RepositorioUsuarios (plural)
             Usuario creador = RepositorioUsuarios.BuscarPorNombre(pubInfo.UsuarioCreador);
 
             StringBuilder info = new StringBuilder();
@@ -376,15 +448,12 @@ namespace Proyecto_Marketplace
                 return;
             }
 
-            // --- ¡MODIFICACIÓN! ---
-            // Ahora le pasamos el 'usuarioActual' Y el 'repoPublicaciones'
             FormProfile ventanaPerfil = new FormProfile(usuarioActual, repoPublicaciones);
-            // --- FIN DE LA MODIFICACIÓN ---
 
             ventanaPerfil.FotoPerfilCambiada += ActualizarFotoPerfil;
             ventanaPerfil.ShowDialog();
 
-            // Actualizamos al usuario por si cambió su Contacto/CUIL
+            // Se usa la clase estática RepositorioUsuarios
             RepositorioUsuarios.ActualizarUsuario(usuarioActual);
         }
 
@@ -403,11 +472,7 @@ namespace Proyecto_Marketplace
 
         private void botonCerrarSesion_Click(object sender, EventArgs e)
         {
-            // --- CORRECCIÓN ---
-            // No modificamos el 'usuarioActual'. 
-            // Creamos un nuevo "Invitado" para la sesión.
             Sesion.UsuarioActual = new Usuario("Invitado");
-            // --- FIN DE LA CORRECCIÓN ---
 
             MessageBox.Show("Has cerrado sesión.", "Sesión cerrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.DialogResult = DialogResult.OK;
@@ -416,10 +481,7 @@ namespace Proyecto_Marketplace
 
         private void botonVolverLogin_Click(object sender, EventArgs e)
         {
-            // --- CORRECCIÓN ---
-            // También nos aseguramos de limpiar la sesión al volver
             Sesion.UsuarioActual = new Usuario("Invitado");
-            // --- FIN DE LA CORRECCIÓN ---
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -427,12 +489,13 @@ namespace Proyecto_Marketplace
 
         private void botonPublicar_Click_1(object sender, EventArgs e)
         {
-            if (usuarioActual.NombreUsuario == "Invitado")
+            
+            if (usuarioActual.NombreUsuario == "Invitado" || usuarioActual.Rol == "Admin")
             {
-                MessageBox.Show("Inicie sesión para acceder a más opciones", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No tiene permisos para realizar esta acción.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            
             FormCrearPublicacion ventana = new FormCrearPublicacion(usuarioActual, repoPublicaciones);
             ventana.ShowDialog();
 

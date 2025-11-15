@@ -12,7 +12,7 @@ namespace Proyecto_Marketplace.forms
             this.MaximizeBox = false;
             this.MinimizeBox = true;
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new Size(600, 600); // (Asegúrate de tener espacio para el campo Email)
+            this.Size = new Size(600, 600); 
         }
 
         public void botonCancelarReg_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace Proyecto_Marketplace.forms
             string cuil = textCuil.Text.Trim();
             string email = txtEmail.Text.Trim();
 
-            // 1. Validaciones de campos vacíos
+            // Validaciones de campos vacíos
             if (string.IsNullOrEmpty(nombreUsuario) || string.IsNullOrEmpty(contrasenia) ||
                 string.IsNullOrEmpty(contacto) || string.IsNullOrEmpty(cuil) || string.IsNullOrEmpty(email))
             {
@@ -40,7 +40,7 @@ namespace Proyecto_Marketplace.forms
                 MessageBox.Show("Las contraseñas no coinciden.", "Error"); return;
             }
 
-            // 2. Validaciones de Formato (Regex)
+            //Validaciones de Formato (Regex)
             if (!long.TryParse(contacto, out _) || !long.TryParse(cuil, out _))
             {
                 MessageBox.Show("El Contacto y el CUIL deben ser solo números.", "Error"); return;
@@ -52,7 +52,6 @@ namespace Proyecto_Marketplace.forms
                 MessageBox.Show("El formato del email no es válido.", "Error"); return;
             }
 
-            // --- ¡NUEVAS VALIDACIONES DE DUPLICADOS! ---
             if (RepositorioUsuarios.BuscarPorNombre(nombreUsuario) != null)
             {
                 MessageBox.Show("El nombre de usuario ya está en uso.", "Error"); return;
@@ -72,21 +71,20 @@ namespace Proyecto_Marketplace.forms
             {
                 MessageBox.Show("El número de contacto ya está registrado por otro usuario.", "Error"); return;
             }
-            // --- FIN DE NUEVAS VALIDACIONES ---
 
-            // 3. Generar Código y Crear Usuario
+            //Generar Código y Crear Usuario, no recomiendo mucho el random, pero para este caso es suficiente
             string codigoVerificacion = new Random().Next(100000, 999999).ToString();
             Usuario nuevoUsuario = new Usuario(nombreUsuario, contrasenia, contacto, cuil, email);
 
-            // 4. Guardar Usuario (como NO verificado)
+            //Guardar Usuario (como NO verificado)
             RepositorioUsuarios.AgregarUsuario(nuevoUsuario);
 
-            // 5. Enviar Email (asíncrono)
+            //Enviar Email asíncrono
             await EmailService.EnviarEmailVerificacion(email, nombreUsuario, codigoVerificacion);
 
             MessageBox.Show("Registro casi completo. Te hemos enviado un código a tu email. Por favor, ingrésalo para activar tu cuenta.", "Verifica tu Email", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // 6. Abrir el formulario de verificación
+            //Abrir el formulario de verificación
             this.Hide();
             FormVerificacion formVer = new FormVerificacion(codigoVerificacion, nuevoUsuario);
             DialogResult verificacionResult = formVer.ShowDialog();

@@ -37,7 +37,7 @@
             // 
             btnVerificar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVerificar.ForeColor = Color.Black;
-            btnVerificar.Location = new Point(295, 222);
+            btnVerificar.Location = new Point(295, 212);
             btnVerificar.Name = "btnVerificar";
             btnVerificar.Size = new Size(128, 52);
             btnVerificar.TabIndex = 0;
@@ -48,7 +48,7 @@
             // txtCodigo
             // 
             txtCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCodigo.Location = new Point(271, 164);
+            txtCodigo.Location = new Point(272, 172);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(186, 34);
             txtCodigo.TabIndex = 1;
@@ -56,7 +56,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Indigo;
+            label1.BackColor = Color.RoyalBlue;
             label1.FlatStyle = FlatStyle.Popup;
             label1.Font = new Font("Impact", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
@@ -70,8 +70,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Indigo;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.CornflowerBlue;
+            ClientSize = new Size(750, 450);
             Controls.Add(label1);
             Controls.Add(txtCodigo);
             Controls.Add(btnVerificar);

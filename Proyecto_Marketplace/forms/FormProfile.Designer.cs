@@ -45,9 +45,9 @@
             txtNombreUsuario = new TextBox();
             txtCuil = new TextBox();
             flowHistorial = new FlowLayoutPanel();
+            label6 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPerfil).BeginInit();
             flowHistorial.SuspendLayout();
             panel1.SuspendLayout();
@@ -60,22 +60,23 @@
             pictureBoxPerfil.BackgroundImage = (Image)resources.GetObject("pictureBoxPerfil.BackgroundImage");
             pictureBoxPerfil.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBoxPerfil.ErrorImage = Properties.Resources.perfilPredeterminado;
+            pictureBoxPerfil.Image = (Image)resources.GetObject("pictureBoxPerfil.Image");
             pictureBoxPerfil.ImageLocation = "";
             pictureBoxPerfil.InitialImage = Properties.Resources.perfilPredeterminado;
-            pictureBoxPerfil.Location = new Point(56, 22);
+            pictureBoxPerfil.Location = new Point(56, 65);
             pictureBoxPerfil.Margin = new Padding(3, 4, 3, 4);
             pictureBoxPerfil.Name = "pictureBoxPerfil";
-            pictureBoxPerfil.Size = new Size(122, 163);
+            pictureBoxPerfil.Size = new Size(122, 120);
             pictureBoxPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxPerfil.TabIndex = 0;
             pictureBoxPerfil.TabStop = false;
             // 
             // boton_cambiarFoto
             // 
-            boton_cambiarFoto.Location = new Point(56, 226);
+            boton_cambiarFoto.Location = new Point(56, 199);
             boton_cambiarFoto.Margin = new Padding(3, 4, 3, 4);
             boton_cambiarFoto.Name = "boton_cambiarFoto";
-            boton_cambiarFoto.Size = new Size(100, 34);
+            boton_cambiarFoto.Size = new Size(122, 34);
             boton_cambiarFoto.TabIndex = 1;
             boton_cambiarFoto.Text = "cambiar ";
             boton_cambiarFoto.UseVisualStyleBackColor = true;
@@ -94,21 +95,21 @@
             // 
             // labelNombreUsuario
             // 
-            labelNombreUsuario.AutoSize = true;
             labelNombreUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelNombreUsuario.ForeColor = Color.White;
-            labelNombreUsuario.Location = new Point(56, 188);
+            labelNombreUsuario.Location = new Point(56, 33);
             labelNombreUsuario.Name = "labelNombreUsuario";
-            labelNombreUsuario.Size = new Size(84, 28);
+            labelNombreUsuario.Size = new Size(122, 28);
             labelNombreUsuario.TabIndex = 3;
             labelNombreUsuario.Text = "Usuario";
+            labelNombreUsuario.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // boton_eliminarFoto
             // 
-            boton_eliminarFoto.Location = new Point(56, 268);
+            boton_eliminarFoto.Location = new Point(56, 251);
             boton_eliminarFoto.Margin = new Padding(3, 4, 3, 4);
             boton_eliminarFoto.Name = "boton_eliminarFoto";
-            boton_eliminarFoto.Size = new Size(100, 34);
+            boton_eliminarFoto.Size = new Size(122, 34);
             boton_eliminarFoto.TabIndex = 4;
             boton_eliminarFoto.Text = "eliminar";
             boton_eliminarFoto.UseVisualStyleBackColor = true;
@@ -214,30 +215,6 @@
             flowHistorial.TabIndex = 16;
             flowHistorial.Click += flowHistorial_Click;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.SlateBlue;
-            panel1.Controls.Add(labelBienvenida);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1197, 67);
-            panel1.TabIndex = 17;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.SlateBlue;
-            panel2.Controls.Add(labelNombreUsuario);
-            panel2.Controls.Add(pictureBoxPerfil);
-            panel2.Controls.Add(boton_cambiarFoto);
-            panel2.Controls.Add(boton_eliminarFoto);
-            panel2.Controls.Add(botonVolverAtras);
-            panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 67);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(250, 581);
-            panel2.TabIndex = 18;
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -249,11 +226,35 @@
             label6.TabIndex = 19;
             label6.Text = "Historial";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.RoyalBlue;
+            panel1.Controls.Add(labelBienvenida);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1197, 67);
+            panel1.TabIndex = 17;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.RoyalBlue;
+            panel2.Controls.Add(labelNombreUsuario);
+            panel2.Controls.Add(pictureBoxPerfil);
+            panel2.Controls.Add(boton_cambiarFoto);
+            panel2.Controls.Add(boton_eliminarFoto);
+            panel2.Controls.Add(botonVolverAtras);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 67);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(250, 581);
+            panel2.TabIndex = 18;
+            // 
             // FormProfile
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Indigo;
+            BackColor = Color.CornflowerBlue;
             ClientSize = new Size(1197, 648);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -276,7 +277,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
