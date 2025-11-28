@@ -7,5 +7,23 @@
     "IsEmailVerified": true,
     "NombreUsuario": "admin",
     "Contraseña": "admin"
+  },
+  {
+    "contacto": "3644175829",
+    "Rol": "Usuario",
+    "Cuil": "20468563747",
+    "Email": "alarconfabri@gmail.com",
+    "IsEmailVerified": false,
+    "NombreUsuario": "far",
+    "Contraseña": "123"
+  },
+  {
+    "contacto": "3644175828",
+    "Rol": "Usuario",
+    "Cuil": "20468563746",
+    "Email": "fabri175829@gmail.com",
+    "IsEmailVerified": false,
+    "NombreUsuario": "farsito",
+    "Contraseña": "12345"
   }
 ]

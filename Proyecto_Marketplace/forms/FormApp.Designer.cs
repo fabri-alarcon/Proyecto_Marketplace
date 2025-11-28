@@ -49,28 +49,25 @@
             // 
             // botonBuscar
             // 
-            botonBuscar.Location = new Point(681, 31);
-            botonBuscar.Margin = new Padding(3, 4, 3, 4);
+            botonBuscar.Location = new Point(645, 31);
             botonBuscar.Name = "botonBuscar";
-            botonBuscar.Size = new Size(86, 31);
+            botonBuscar.Size = new Size(75, 23);
             botonBuscar.TabIndex = 0;
             botonBuscar.Text = "Buscar";
             botonBuscar.UseVisualStyleBackColor = true;
             // 
             // textBoxBusqueda
             // 
-            textBoxBusqueda.Location = new Point(268, 31);
-            textBoxBusqueda.Margin = new Padding(3, 4, 3, 4);
+            textBoxBusqueda.Location = new Point(283, 31);
             textBoxBusqueda.Name = "textBoxBusqueda";
-            textBoxBusqueda.Size = new Size(406, 27);
+            textBoxBusqueda.Size = new Size(356, 23);
             textBoxBusqueda.TabIndex = 1;
             // 
             // botonPerfil
             // 
-            botonPerfil.Location = new Point(21, 156);
-            botonPerfil.Margin = new Padding(3, 4, 3, 4);
+            botonPerfil.Location = new Point(23, 98);
             botonPerfil.Name = "botonPerfil";
-            botonPerfil.Size = new Size(105, 31);
+            botonPerfil.Size = new Size(92, 23);
             botonPerfil.TabIndex = 2;
             botonPerfil.Text = "Perfil";
             botonPerfil.UseVisualStyleBackColor = true;
@@ -78,10 +75,9 @@
             // 
             // botonPublicar
             // 
-            botonPublicar.Location = new Point(779, 30);
-            botonPublicar.Margin = new Padding(3, 4, 3, 4);
+            botonPublicar.Location = new Point(23, 125);
             botonPublicar.Name = "botonPublicar";
-            botonPublicar.Size = new Size(105, 32);
+            botonPublicar.Size = new Size(92, 24);
             botonPublicar.TabIndex = 3;
             botonPublicar.Text = "Publicar";
             botonPublicar.UseVisualStyleBackColor = true;
@@ -89,24 +85,21 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.BackgroundImage = Properties.Resources.perfilPredeterminado;
             pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.InitialImage = Properties.Resources.perfilPredeterminado;
-            pictureBox2.Location = new Point(21, 41);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.InitialImage = null;
+            pictureBox2.Location = new Point(23, 12);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(105, 107);
+            pictureBox2.Size = new Size(92, 80);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
             // botonCerrarSesion
             // 
-            botonCerrarSesion.Location = new Point(13, 700);
-            botonCerrarSesion.Margin = new Padding(3, 4, 3, 4);
+            botonCerrarSesion.Location = new Point(11, 525);
             botonCerrarSesion.Name = "botonCerrarSesion";
-            botonCerrarSesion.Size = new Size(103, 32);
+            botonCerrarSesion.Size = new Size(90, 24);
             botonCerrarSesion.TabIndex = 6;
             botonCerrarSesion.Text = "cerrar sesion";
             botonCerrarSesion.UseVisualStyleBackColor = true;
@@ -114,10 +107,9 @@
             // 
             // botonVolverLogin
             // 
-            botonVolverLogin.Location = new Point(13, 701);
-            botonVolverLogin.Margin = new Padding(3, 4, 3, 4);
+            botonVolverLogin.Location = new Point(11, 526);
             botonVolverLogin.Name = "botonVolverLogin";
-            botonVolverLogin.Size = new Size(102, 31);
+            botonVolverLogin.Size = new Size(89, 23);
             botonVolverLogin.TabIndex = 7;
             botonVolverLogin.Text = "volver";
             botonVolverLogin.UseVisualStyleBackColor = true;
@@ -126,17 +118,19 @@
             // comboCategoriaFiltro
             // 
             comboCategoriaFiltro.FormattingEnabled = true;
-            comboCategoriaFiltro.Location = new Point(144, 30);
+            comboCategoriaFiltro.Location = new Point(175, 30);
+            comboCategoriaFiltro.Margin = new Padding(3, 2, 3, 2);
             comboCategoriaFiltro.Name = "comboCategoriaFiltro";
-            comboCategoriaFiltro.Size = new Size(118, 28);
+            comboCategoriaFiltro.Size = new Size(104, 23);
             comboCategoriaFiltro.TabIndex = 8;
             comboCategoriaFiltro.Text = "Categoría";
             // 
             // botonModerar
             // 
-            botonModerar.Location = new Point(21, 194);
+            botonModerar.Location = new Point(23, 126);
+            botonModerar.Margin = new Padding(3, 2, 3, 2);
             botonModerar.Name = "botonModerar";
-            botonModerar.Size = new Size(105, 29);
+            botonModerar.Size = new Size(92, 24);
             botonModerar.TabIndex = 9;
             botonModerar.Text = "Moderar";
             botonModerar.UseVisualStyleBackColor = true;
@@ -146,35 +140,35 @@
             adminContextMenu.ImageScalingSize = new Size(20, 20);
             adminContextMenu.Items.AddRange(new ToolStripItem[] { aprobarToolStripMenuItem, eliminarToolStripMenuItem, infoToolStripMenuItem });
             adminContextMenu.Name = "adminContextMenu";
-            adminContextMenu.Size = new Size(159, 76);
+            adminContextMenu.Size = new Size(140, 70);
             // 
             // aprobarToolStripMenuItem
             // 
             aprobarToolStripMenuItem.Name = "aprobarToolStripMenuItem";
-            aprobarToolStripMenuItem.Size = new Size(158, 24);
+            aprobarToolStripMenuItem.Size = new Size(139, 22);
             aprobarToolStripMenuItem.Text = "Aprobar";
             aprobarToolStripMenuItem.Click += aprobarToolStripMenuItem_Click;
             // 
             // eliminarToolStripMenuItem
             // 
             eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            eliminarToolStripMenuItem.Size = new Size(158, 24);
+            eliminarToolStripMenuItem.Size = new Size(139, 22);
             eliminarToolStripMenuItem.Text = "Eliminar";
             eliminarToolStripMenuItem.Click += eliminarToolStripMenuItem_Click;
             // 
             // infoToolStripMenuItem
             // 
             infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            infoToolStripMenuItem.Size = new Size(158, 24);
+            infoToolStripMenuItem.Size = new Size(139, 22);
             infoToolStripMenuItem.Text = "Información";
             infoToolStripMenuItem.Click += infoToolStripMenuItem_Click;
             // 
             // FormApp
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
-            ClientSize = new Size(896, 748);
+            ClientSize = new Size(784, 526);
             Controls.Add(botonModerar);
             Controls.Add(comboCategoriaFiltro);
             Controls.Add(botonVolverLogin);
@@ -184,7 +178,6 @@
             Controls.Add(botonPerfil);
             Controls.Add(textBoxBusqueda);
             Controls.Add(botonBuscar);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormApp";
             Text = "Services and Products";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

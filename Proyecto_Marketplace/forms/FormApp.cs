@@ -42,8 +42,8 @@ namespace Proyecto_Marketplace
             flowPanel = new FlowLayoutPanel
             {
                 Width = 760,
-                Height = 460,
-                Left = 110,
+                Height = 500,
+                Left = 150,
                 Top = 80,
                 AutoScroll = true,
                 Margin = new Padding(50),

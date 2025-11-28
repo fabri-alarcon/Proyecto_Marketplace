@@ -63,16 +63,6 @@ namespace Proyecto_Marketplace.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logoApp {
-            get {
-                object obj = ResourceManager.GetObject("logoApp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap perfilPredeterminado {
             get {
                 object obj = ResourceManager.GetObject("perfilPredeterminado", resourceCulture);

@@ -332,5 +332,7 @@ namespace Proyecto_Marketplace.forms
         {
             // Este método está vacío.
         }
+
+       
     }
 }

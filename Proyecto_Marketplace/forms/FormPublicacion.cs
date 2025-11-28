@@ -61,7 +61,7 @@ namespace Proyecto_Marketplace.forms
             {
                 string rutaImagenActual = publicacion.RutasImagenes[indiceImagenActual];
 
-                
+
                 using (FormZoomImagen formZoom = new FormZoomImagen(rutaImagenActual))
                 {
                     formZoom.ShowDialog();
@@ -181,5 +181,7 @@ namespace Proyecto_Marketplace.forms
         {
             this.Close();
         }
+
+        
     }
 }

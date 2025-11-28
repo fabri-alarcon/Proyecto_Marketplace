@@ -2,12 +2,12 @@
 
 namespace Proyecto_Marketplace.forms
 {
-    public partial class FormVerificacion : Form
+    public partial class Verificación : Form
     {
         private string codigoCorrecto;
         private Usuario usuarioAVerificar;
 
-        public FormVerificacion(string codigo, Usuario usuario)
+        public Verificación(string codigo, Usuario usuario)
         {
             InitializeComponent();
             codigoCorrecto = codigo;
@@ -29,6 +29,7 @@ namespace Proyecto_Marketplace.forms
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+   
             else
             {
                 // Código incorrecto

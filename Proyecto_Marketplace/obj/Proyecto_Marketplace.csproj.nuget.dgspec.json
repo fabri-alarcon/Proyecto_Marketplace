@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\twerk\\Desktop\\Proyecto_Marketplace-master (1)\\Proyecto_Marketplace-master\\Proyecto_Marketplace\\Proyecto_Marketplace.csproj": {}
+    "C:\\Users\\Fabri\\Source\\Repos\\Proyecto_Final\\Proyecto_Marketplace\\Proyecto_Marketplace.csproj": {}
   },
   "projects": {
-    "C:\\Users\\twerk\\Desktop\\Proyecto_Marketplace-master (1)\\Proyecto_Marketplace-master\\Proyecto_Marketplace\\Proyecto_Marketplace.csproj": {
+    "C:\\Users\\Fabri\\Source\\Repos\\Proyecto_Final\\Proyecto_Marketplace\\Proyecto_Marketplace.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\twerk\\Desktop\\Proyecto_Marketplace-master (1)\\Proyecto_Marketplace-master\\Proyecto_Marketplace\\Proyecto_Marketplace.csproj",
+        "projectUniqueName": "C:\\Users\\Fabri\\Source\\Repos\\Proyecto_Final\\Proyecto_Marketplace\\Proyecto_Marketplace.csproj",
         "projectName": "Proyecto_Marketplace",
-        "projectPath": "C:\\Users\\twerk\\Desktop\\Proyecto_Marketplace-master (1)\\Proyecto_Marketplace-master\\Proyecto_Marketplace\\Proyecto_Marketplace.csproj",
-        "packagesPath": "C:\\Users\\twerk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\twerk\\Desktop\\Proyecto_Marketplace-master (1)\\Proyecto_Marketplace-master\\Proyecto_Marketplace\\obj\\",
+        "projectPath": "C:\\Users\\Fabri\\Source\\Repos\\Proyecto_Final\\Proyecto_Marketplace\\Proyecto_Marketplace.csproj",
+        "packagesPath": "C:\\Users\\Fabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fabri\\Source\\Repos\\Proyecto_Final\\Proyecto_Marketplace\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\twerk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Fabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

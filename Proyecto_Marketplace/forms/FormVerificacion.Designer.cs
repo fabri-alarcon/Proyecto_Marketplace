@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Marketplace.forms
 {
-    partial class FormVerificacion
+    partial class Verificación
     {
         /// <summary>
         /// Required designer variable.
@@ -37,9 +37,10 @@
             // 
             btnVerificar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVerificar.ForeColor = Color.Black;
-            btnVerificar.Location = new Point(295, 212);
+            btnVerificar.Location = new Point(269, 206);
+            btnVerificar.Margin = new Padding(3, 2, 3, 2);
             btnVerificar.Name = "btnVerificar";
-            btnVerificar.Size = new Size(128, 52);
+            btnVerificar.Size = new Size(103, 33);
             btnVerificar.TabIndex = 0;
             btnVerificar.Text = "Verificar";
             btnVerificar.UseVisualStyleBackColor = true;
@@ -48,35 +49,39 @@
             // txtCodigo
             // 
             txtCodigo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCodigo.Location = new Point(272, 172);
+            txtCodigo.Location = new Point(238, 158);
+            txtCodigo.Margin = new Padding(3, 2, 3, 2);
             txtCodigo.Name = "txtCodigo";
-            txtCodigo.Size = new Size(186, 34);
+            txtCodigo.Size = new Size(163, 29);
             txtCodigo.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.RoyalBlue;
+            label1.BackColor = Color.CornflowerBlue;
             label1.FlatStyle = FlatStyle.Popup;
-            label1.Font = new Font("Impact", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(219, 130);
+            label1.Location = new Point(147, 108);
             label1.Name = "label1";
-            label1.Size = new Size(303, 19);
+            label1.Size = new Size(373, 23);
             label1.TabIndex = 2;
             label1.Text = "Revise su Mail e ingrese código de verificación";
             // 
-            // FormVerificacion
+            // Verificación
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
-            ClientSize = new Size(750, 450);
+            ClientSize = new Size(656, 338);
             Controls.Add(label1);
             Controls.Add(txtCodigo);
             Controls.Add(btnVerificar);
             ForeColor = Color.White;
-            Name = "FormVerificacion";
+            Margin = new Padding(3, 2, 3, 2);
+            MinimizeBox = false;
+            Name = "Verificación";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormVerificacion";
             ResumeLayout(false);
             PerformLayout();

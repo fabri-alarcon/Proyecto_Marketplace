@@ -12,7 +12,7 @@ namespace Proyecto_Marketplace.forms
             this.MaximizeBox = false;
             this.MinimizeBox = true;
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new Size(600, 600); 
+            this.Size = new Size(600, 600);
         }
 
         public void botonCancelarReg_Click(object sender, EventArgs e)
@@ -76,17 +76,25 @@ namespace Proyecto_Marketplace.forms
             string codigoVerificacion = new Random().Next(100000, 999999).ToString();
             Usuario nuevoUsuario = new Usuario(nombreUsuario, contrasenia, contacto, cuil, email);
 
+
+
             //Guardar Usuario (como NO verificado)
             RepositorioUsuarios.AgregarUsuario(nuevoUsuario);
 
+
+            label6.Visible = true;
+
             //Enviar Email asíncrono
             await EmailService.EnviarEmailVerificacion(email, nombreUsuario, codigoVerificacion);
+            
+            label6.Visible = false;
+
 
             MessageBox.Show("Registro casi completo. Te hemos enviado un código a tu email. Por favor, ingrésalo para activar tu cuenta.", "Verifica tu Email", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Abrir el formulario de verificación
             this.Hide();
-            FormVerificacion formVer = new FormVerificacion(codigoVerificacion, nuevoUsuario);
+            Verificación formVer = new Verificación(codigoVerificacion, nuevoUsuario);
             DialogResult verificacionResult = formVer.ShowDialog();
 
             if (verificacionResult == DialogResult.OK)
@@ -102,5 +110,7 @@ namespace Proyecto_Marketplace.forms
                 this.Show();
             }
         }
+
+       
     }
 }
