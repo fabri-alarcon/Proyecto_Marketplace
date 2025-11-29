@@ -1,0 +1,109 @@
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.exe
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\auricularesImagen.jpeg
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.deps.json
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.runtimeconfig.json
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.pdb
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\MailKit.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\MimeKit.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.AssemblyReference.cache
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.FormApp.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormCrearPublicacion.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.FormLogin.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormProfile.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormPublicacion.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormRegistrar.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormVerificacion.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Properties.Resources.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.GenerateResource.cache
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.AssemblyInfoInputs.cache
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.AssemblyInfo.cs
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.CoreCompileInputs.cache
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto.7C29C3C0.Up2Date
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\refint\Proyecto_Marketplace.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.pdb
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.genruntimeconfig.cache
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\ref\Proyecto_Marketplace.dll
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Controls.PublicacionCard.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormZoomImagen.resources
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\revoque_apli.jpeg
+C:\Users\twerk\Desktop\Proyecto_Marketplace-master (1)\Proyecto_Marketplace-master\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\tele.jpeg
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\revoque_apli.jpeg
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\tele.jpeg
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.exe
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\auricularesImagen.jpeg
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.deps.json
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.runtimeconfig.json
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.pdb
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\MailKit.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\MimeKit.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.AssemblyReference.cache
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Controls.PublicacionCard.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.FormApp.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormCrearPublicacion.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.FormLogin.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormProfile.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormPublicacion.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormRegistrar.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormZoomImagen.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Properties.Resources.resources
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.GenerateResource.cache
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.AssemblyInfoInputs.cache
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.AssemblyInfo.cs
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.CoreCompileInputs.cache
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.sourcelink.json
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto.7C29C3C0.Up2Date
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\refint\Proyecto_Marketplace.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.pdb
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.genruntimeconfig.cache
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\ref\Proyecto_Marketplace.dll
+C:\Users\Fabri\Source\Repos\Proyecto_Final\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.Verificación.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.AssemblyReference.cache
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\refint\Proyecto_Marketplace.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.pdb
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\revoque_apli.jpeg
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\tele.jpeg
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.exe
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\media\auricularesImagen.jpeg
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.deps.json
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.runtimeconfig.json
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\Proyecto_Marketplace.pdb
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\MailKit.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\MimeKit.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Controls.PublicacionCard.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.FormApp.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormCrearPublicacion.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.FormLogin.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormProfile.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormPublicacion.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormRegistrar.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.Verificación.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.forms.FormZoomImagen.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.Properties.Resources.resources
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.GenerateResource.cache
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.AssemblyInfoInputs.cache
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.AssemblyInfo.cs
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.csproj.CoreCompileInputs.cache
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto.7C29C3C0.Up2Date
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\Proyecto_Marketplace.genruntimeconfig.cache
+C:\Users\twerk\Desktop\e\Proyecto_Marketplace-Mimarket\Proyecto_Marketplace\obj\Debug\net8.0-windows\ref\Proyecto_Marketplace.dll

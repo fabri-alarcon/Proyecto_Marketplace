@@ -1,0 +1,50 @@
+[
+  {
+    "Titulo": "Auriculares Inalámbricos",
+    "Descripcion": "Excelente calidad de sonido",
+    "Precio": "232",
+    "RutasImagenes": [
+      "C:\\Users\\twerk\\Desktop\\e\\Proyecto_Marketplace-Mimarket\\Proyecto_Marketplace\\bin\\Debug\\net8.0-windows\\media\\auricularesImagen.jpeg"
+    ],
+    "Ubicacion": "Centro",
+    "Contacto": "3644175829",
+    "EstadoVenta": "Disponible",
+    "EstadoModeracion": "Aprobado",
+    "Categoria": "Tecnología",
+    "Tipo": "Producto",
+    "UsuarioCreador": "AdminDemo",
+    "FechaPublicacion": "2025-11-29T18:59:00.357639-03:00"
+  },
+  {
+    "Titulo": "Vendo tele smart 42' ",
+    "Descripcion": "¡Tecnología clave para disfrutar en familia!",
+    "Precio": "5000",
+    "RutasImagenes": [
+      "C:\\Users\\twerk\\Desktop\\e\\Proyecto_Marketplace-Mimarket\\Proyecto_Marketplace\\bin\\Debug\\net8.0-windows\\media\\tele.jpeg"
+    ],
+    "Ubicacion": "Ensanche Sur",
+    "Contacto": "000",
+    "EstadoVenta": "Disponible",
+    "EstadoModeracion": "Aprobado",
+    "Categoria": "Tecnología",
+    "Tipo": "Producto",
+    "UsuarioCreador": "AdminDemo",
+    "FechaPublicacion": "2025-11-29T18:59:00.3590173-03:00"
+  },
+  {
+    "Titulo": "Ofrezco servicios de construcción",
+    "Descripcion": "Buena calidad de construcción",
+    "Precio": "100000",
+    "RutasImagenes": [
+      "C:\\Users\\twerk\\Desktop\\e\\Proyecto_Marketplace-Mimarket\\Proyecto_Marketplace\\bin\\Debug\\net8.0-windows\\media\\revoque_apli.jpeg"
+    ],
+    "Ubicacion": "A domicilio",
+    "Contacto": "000",
+    "EstadoVenta": "Disponible",
+    "EstadoModeracion": "Aprobado",
+    "Categoria": "Otros",
+    "Tipo": "Servicio",
+    "UsuarioCreador": "AdminDemo",
+    "FechaPublicacion": "2025-11-29T18:59:00.3591239-03:00"
+  }
+]
