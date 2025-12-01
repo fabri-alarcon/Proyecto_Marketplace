@@ -290,6 +290,7 @@
             Controls.Add(label2);
             Controls.Add(textBoxTitulo);
             Controls.Add(label1);
+            MdiChildrenMinimizedAnchorBottom = false;
             Name = "FormCrearPublicacion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Crear Publicaciones";

@@ -52,9 +52,9 @@
             labelTitulo.AutoSize = true;
             labelTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTitulo.ForeColor = SystemColors.Control;
-            labelTitulo.Location = new Point(456, 44);
+            labelTitulo.Location = new Point(399, 33);
             labelTitulo.Name = "labelTitulo";
-            labelTitulo.Size = new Size(96, 41);
+            labelTitulo.Size = new Size(76, 32);
             labelTitulo.TabIndex = 0;
             labelTitulo.Text = "titulo";
             // 
@@ -63,9 +63,9 @@
             labelTipo.AutoSize = true;
             labelTipo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTipo.ForeColor = SystemColors.Control;
-            labelTipo.Location = new Point(459, 311);
+            labelTipo.Location = new Point(402, 233);
             labelTipo.Name = "labelTipo";
-            labelTipo.Size = new Size(106, 28);
+            labelTipo.Size = new Size(87, 21);
             labelTipo.TabIndex = 1;
             labelTipo.Text = "valor_tipo";
             // 
@@ -74,9 +74,9 @@
             labelDescripcion.AutoSize = true;
             labelDescripcion.Font = new Font("Arial Narrow", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             labelDescripcion.ForeColor = SystemColors.Control;
-            labelDescripcion.Location = new Point(86, 384);
+            labelDescripcion.Location = new Point(75, 288);
             labelDescripcion.Name = "labelDescripcion";
-            labelDescripcion.Size = new Size(123, 29);
+            labelDescripcion.Size = new Size(100, 23);
             labelDescripcion.TabIndex = 1;
             labelDescripcion.Text = "descripcion";
             // 
@@ -85,9 +85,9 @@
             labelPrecio.AutoSize = true;
             labelPrecio.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelPrecio.ForeColor = SystemColors.Control;
-            labelPrecio.Location = new Point(458, 223);
+            labelPrecio.Location = new Point(401, 167);
             labelPrecio.Name = "labelPrecio";
-            labelPrecio.Size = new Size(127, 28);
+            labelPrecio.Size = new Size(104, 21);
             labelPrecio.TabIndex = 2;
             labelPrecio.Text = "valor_precio";
             // 
@@ -96,28 +96,26 @@
             labelUsuario.AutoSize = true;
             labelUsuario.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelUsuario.ForeColor = SystemColors.ControlLight;
-            labelUsuario.Location = new Point(456, 131);
+            labelUsuario.Location = new Point(399, 98);
             labelUsuario.Name = "labelUsuario";
-            labelUsuario.Size = new Size(168, 32);
+            labelUsuario.Size = new Size(132, 25);
             labelUsuario.TabIndex = 3;
             labelUsuario.Text = "valor_usuario";
             // 
             // pictureBoxImagenPubli
             // 
-            pictureBoxImagenPubli.Location = new Point(86, 32);
-            pictureBoxImagenPubli.Margin = new Padding(3, 4, 3, 4);
+            pictureBoxImagenPubli.Location = new Point(75, 24);
             pictureBoxImagenPubli.Name = "pictureBoxImagenPubli";
-            pictureBoxImagenPubli.Size = new Size(287, 305);
+            pictureBoxImagenPubli.Size = new Size(251, 229);
             pictureBoxImagenPubli.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxImagenPubli.TabIndex = 4;
             pictureBoxImagenPubli.TabStop = false;
             // 
             // botonEnviarMensaje
             // 
-            botonEnviarMensaje.Location = new Point(725, 553);
-            botonEnviarMensaje.Margin = new Padding(3, 4, 3, 4);
+            botonEnviarMensaje.Location = new Point(648, 415);
             botonEnviarMensaje.Name = "botonEnviarMensaje";
-            botonEnviarMensaje.Size = new Size(142, 45);
+            botonEnviarMensaje.Size = new Size(124, 34);
             botonEnviarMensaje.TabIndex = 5;
             botonEnviarMensaje.Text = "enviar mensaje";
             botonEnviarMensaje.UseVisualStyleBackColor = true;
@@ -125,10 +123,9 @@
             // 
             // botonVolverAtras
             // 
-            botonVolverAtras.Location = new Point(14, 553);
-            botonVolverAtras.Margin = new Padding(3, 4, 3, 4);
+            botonVolverAtras.Location = new Point(12, 415);
             botonVolverAtras.Name = "botonVolverAtras";
-            botonVolverAtras.Size = new Size(142, 45);
+            botonVolverAtras.Size = new Size(124, 34);
             botonVolverAtras.TabIndex = 6;
             botonVolverAtras.Text = "volver atrás";
             botonVolverAtras.UseVisualStyleBackColor = true;
@@ -139,9 +136,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLight;
-            label1.Location = new Point(457, 103);
+            label1.Location = new Point(400, 77);
             label1.Name = "label1";
-            label1.Size = new Size(174, 28);
+            label1.Size = new Size(140, 21);
             label1.TabIndex = 7;
             label1.Text = "PUBLICADO POR:";
             // 
@@ -150,9 +147,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(459, 195);
+            label2.Location = new Point(402, 146);
             label2.Name = "label2";
-            label2.Size = new Size(81, 28);
+            label2.Size = new Size(66, 21);
             label2.TabIndex = 8;
             label2.Text = "PRECIO";
             // 
@@ -161,9 +158,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(459, 281);
+            label3.Location = new Point(402, 211);
             label3.Name = "label3";
-            label3.Size = new Size(57, 28);
+            label3.Size = new Size(46, 21);
             label3.TabIndex = 9;
             label3.Text = "TIPO";
             // 
@@ -172,9 +169,9 @@
             labelFechaPublicacion.AutoSize = true;
             labelFechaPublicacion.Font = new Font("Microsoft Sans Serif", 8.25F);
             labelFechaPublicacion.ForeColor = SystemColors.ControlLight;
-            labelFechaPublicacion.Location = new Point(86, 341);
+            labelFechaPublicacion.Location = new Point(75, 256);
             labelFechaPublicacion.Name = "labelFechaPublicacion";
-            labelFechaPublicacion.Size = new Size(82, 17);
+            labelFechaPublicacion.Size = new Size(63, 13);
             labelFechaPublicacion.TabIndex = 10;
             labelFechaPublicacion.Text = "valor_fecha";
             // 
@@ -186,9 +183,10 @@
             BtnSiguiente.FlatAppearance.BorderSize = 0;
             BtnSiguiente.FlatStyle = FlatStyle.Flat;
             BtnSiguiente.ForeColor = Color.Transparent;
-            BtnSiguiente.Location = new Point(379, 164);
+            BtnSiguiente.Location = new Point(332, 123);
+            BtnSiguiente.Margin = new Padding(3, 2, 3, 2);
             BtnSiguiente.Name = "BtnSiguiente";
-            BtnSiguiente.Size = new Size(37, 37);
+            BtnSiguiente.Size = new Size(32, 28);
             BtnSiguiente.TabIndex = 11;
             BtnSiguiente.UseVisualStyleBackColor = false;
             // 
@@ -196,9 +194,10 @@
             // 
             lblContadorImagenes.AutoSize = true;
             lblContadorImagenes.BackColor = Color.Transparent;
-            lblContadorImagenes.Location = new Point(342, 9);
+            lblContadorImagenes.ForeColor = SystemColors.Control;
+            lblContadorImagenes.Location = new Point(299, 7);
             lblContadorImagenes.Name = "lblContadorImagenes";
-            lblContadorImagenes.Size = new Size(50, 20);
+            lblContadorImagenes.Size = new Size(38, 15);
             lblContadorImagenes.TabIndex = 13;
             lblContadorImagenes.Text = "label4";
             // 
@@ -210,18 +209,20 @@
             BtnAnterior.FlatAppearance.BorderSize = 0;
             BtnAnterior.FlatStyle = FlatStyle.Flat;
             BtnAnterior.ForeColor = Color.Transparent;
-            BtnAnterior.Location = new Point(42, 164);
+            BtnAnterior.Location = new Point(37, 123);
+            BtnAnterior.Margin = new Padding(3, 2, 3, 2);
             BtnAnterior.Name = "BtnAnterior";
-            BtnAnterior.Size = new Size(37, 37);
+            BtnAnterior.Size = new Size(32, 28);
             BtnAnterior.TabIndex = 12;
             BtnAnterior.UseVisualStyleBackColor = false;
             // 
             // FormPublicacion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.CornflowerBlue;
-            ClientSize = new Size(950, 615);
+            ClientSize = new Size(784, 461);
             Controls.Add(lblContadorImagenes);
             Controls.Add(BtnAnterior);
             Controls.Add(BtnSiguiente);
@@ -238,8 +239,8 @@
             Controls.Add(labelTipo);
             Controls.Add(labelTitulo);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
             Name = "FormPublicacion";
             StartPosition = FormStartPosition.CenterScreen;

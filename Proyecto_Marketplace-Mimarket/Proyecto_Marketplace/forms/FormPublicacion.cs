@@ -11,6 +11,7 @@ namespace Proyecto_Marketplace.forms
     {
         private Publicacion publicacion;
         private Usuario usuarioActual;
+        
 
         // Variable para rastrear la imagen actual
         private int indiceImagenActual = 0;
@@ -21,6 +22,10 @@ namespace Proyecto_Marketplace.forms
             this.Load += FormPublicacion_Load;
             usuarioActual = usuario ?? new Usuario("Invitado");
             publicacion = publi;
+            this.Size = new Size(800, 500);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
 
             // Conexión de eventos para el siguiente y anterior
             BtnSiguiente.Click += BtnSiguiente_Click;

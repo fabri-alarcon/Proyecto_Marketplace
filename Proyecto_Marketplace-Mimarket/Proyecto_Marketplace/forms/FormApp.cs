@@ -17,7 +17,7 @@ namespace Proyecto_Marketplace
         private FlowLayoutPanel flowPanel;
         private RepositorioPublicaciones repoPublicaciones = new RepositorioPublicaciones();
 
-
+        //para que se muestren las publicaciones aprobadas
         private string filtroModeracionActual = "Aprobado";
 
         public FormApp(Usuario usuario)
@@ -93,8 +93,9 @@ namespace Proyecto_Marketplace
             {
 
                 string RutaAuricular = Path.Combine(Application.StartupPath, "media", "auricularesImagen.jpeg");
-                string RutaTele = Path.Combine(Application.StartupPath, "media", "tele.jpeg");
+                string RutaTele = Path.Combine(Application.StartupPath, "media", "tele.jpg");
                 string RutaAlbañil = Path.Combine(Application.StartupPath, "media", "revoque_apli.jpeg");
+                
 
                 Publicacion p1 = new Publicacion(
                     "Auriculares Inalámbricos",
@@ -103,7 +104,6 @@ namespace Proyecto_Marketplace
                     new List<string> { RutaAuricular },
                     "Centro",
                     "3644175829",
-                    "Disponible",
                     "AdminDemo",
                     "Tecnología"
                 );
@@ -116,13 +116,11 @@ namespace Proyecto_Marketplace
                     new List<string> { RutaTele },
                     "Ensanche Sur",
                     "000",
-                    "Disponible",
                     "AdminDemo",
                     "Tecnología"
                 );
                 p2.EstadoModeracion = "Aprobado";
-                //La cantidad de parametros diferencian entre producto (9) y servicio (8)
-                // (titulo, precio, List<string>, descripcion, ubicacion, contacto, usuario, categoria)
+     
                 Publicacion p3 = new Publicacion(
                     "Ofrezco servicios de construcción",
                     "100000", // precio
@@ -138,42 +136,17 @@ namespace Proyecto_Marketplace
                 repoPublicaciones.AgregarPublicacion(p1);
                 repoPublicaciones.AgregarPublicacion(p2);
                 repoPublicaciones.AgregarPublicacion(p3);
+                
             }
 
             CargarSugerenciasBusqueda();
             filtroModeracionActual = "Aprobado";
             MostrarPublicaciones();
+
         }
 
 
-        // FUNCIONES AUXILIARES
-        // Esta función se utiliza para cargar las imágenes de las publicaciones, 
-        // donde se le pasa la ruta absoluta.
-        private Image CargarImagenSegura(string ruta)
-        {
-            try
-            {
-                if (File.Exists(ruta))
-                {
-                    using (var fs = new FileStream(ruta, FileMode.Open, FileAccess.Read))
-                    {
-                        return new Bitmap(fs);
-                    }
-                }
-            }
-            catch { }
-
-            try
-            {
-                string placeholderPath = Path.Combine(Application.StartupPath, "media", "placeholder.png");
-                if (File.Exists(placeholderPath))
-                    return Image.FromFile(placeholderPath);
-            }
-            catch { }
-
-            return new Bitmap(100, 100);
-        }
-
+       
         private void MostrarPublicaciones()
         {
             flowPanel.Controls.Clear();

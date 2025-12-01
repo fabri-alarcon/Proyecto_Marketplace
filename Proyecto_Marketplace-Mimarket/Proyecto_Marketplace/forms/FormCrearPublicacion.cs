@@ -22,6 +22,8 @@ namespace Proyecto_Marketplace.forms
             this.repoPublicaciones = repoPublicaciones;
             this.usuarioActual = usuarioActual;
             this.Size = new Size(816, 489);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
 
             //Carga de ComboBox de Categorías
             comboCategoria.Items.Add("Tecnología");
@@ -79,7 +81,6 @@ namespace Proyecto_Marketplace.forms
                     rutasImagenesSeleccionadas,
                     usuarioActual.NombreUsuario,
                     usuarioActual.contacto,
-                    "Disponible",
                     usuarioActual.NombreUsuario,
                     categoriaSeleccionada
                 );

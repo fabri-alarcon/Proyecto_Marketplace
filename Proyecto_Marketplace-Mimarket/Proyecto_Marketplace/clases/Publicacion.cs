@@ -51,7 +51,7 @@ namespace Proyecto_Marketplace.clases
 
         public string Ubicacion { get; set; }
         public string Contacto { get; set; }
-        public string EstadoVenta { get; set; } = null!;
+       
         public string EstadoModeracion { get; set; }
         public string Categoria { get; set; }
         public string Tipo { get; set; }
@@ -62,8 +62,8 @@ namespace Proyecto_Marketplace.clases
         {
         }
 
-        // Construtor Producto (9 argumentos)
-        public Publicacion(string titulo, string precio, string descripcion, List<string> rutasImagenes, string ubicacion, string contacto, string estadoVenta, string usuario, string categoria)
+        // Construtor Producto (8 argumentos)
+        public Publicacion(string titulo, string precio, string descripcion, List<string> rutasImagenes, string ubicacion, string contacto, string usuario, string categoria)
         {
             Titulo = titulo;
             Precio = precio; 
@@ -71,7 +71,6 @@ namespace Proyecto_Marketplace.clases
             Descripcion = descripcion;
             Ubicacion = ubicacion;
             Contacto = contacto;
-            EstadoVenta = estadoVenta;
             Tipo = "Producto";
             UsuarioCreador = usuario;
             FechaPublicacion = DateTime.Now;
@@ -90,7 +89,6 @@ namespace Proyecto_Marketplace.clases
             Tipo = "Servicio";
             UsuarioCreador = usuario;
             FechaPublicacion = DateTime.Now;
-            EstadoVenta = "Disponible"; 
             EstadoModeracion = "Pendiente";
             Categoria = categoria;
         }

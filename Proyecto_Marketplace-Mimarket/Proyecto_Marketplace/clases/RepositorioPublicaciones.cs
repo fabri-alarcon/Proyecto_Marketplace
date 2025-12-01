@@ -31,24 +31,24 @@ public class RepositorioPublicaciones
 
  public void EliminarPublicacion(Publicacion pub)
  {
- // Usamos Titulo y Creador como ID único temporal
- var publicacion = Publicaciones.FirstOrDefault(p =>
-p.Titulo == pub.Titulo && p.UsuarioCreador == pub.UsuarioCreador);
- if (publicacion != null)
- {
- Publicaciones.Remove(publicacion);
- GuardarPublicaciones();
- }
+     // Usamos Titulo y Creador como ID único temporal
+     var publicacion = Publicaciones.FirstOrDefault(p =>
+     p.Titulo == pub.Titulo && p.UsuarioCreador == pub.UsuarioCreador);
+     if (publicacion != null)
+     {
+         Publicaciones.Remove(publicacion);
+         GuardarPublicaciones();
+     }
  }
 
  public void AprobarPublicacion(Publicacion pub)
  {
-    var publicacion = Publicaciones.FirstOrDefault(p =>
-    p.Titulo == pub.Titulo && p.UsuarioCreador == pub.UsuarioCreador);
+     var publicacion = Publicaciones.FirstOrDefault(p =>
+     p.Titulo == pub.Titulo && p.UsuarioCreador == pub.UsuarioCreador);
      if (publicacion != null)
          {
-        publicacion.EstadoModeracion = "Aprobado";
-        GuardarPublicaciones();
+            publicacion.EstadoModeracion = "Aprobado";
+            GuardarPublicaciones();
          }
      }
  

@@ -40,9 +40,9 @@
 
   <ItemGroup>
     <None Update="media\revoque_apli.jpeg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="media\tele.jpeg">
+    <None Update="media\tele.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
