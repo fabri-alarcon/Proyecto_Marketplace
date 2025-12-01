@@ -21,6 +21,7 @@ namespace Proyecto_Marketplace.forms
             InitializeComponent();
             this.repoPublicaciones = repoPublicaciones;
             this.usuarioActual = usuarioActual;
+            this.Size = new Size(816, 489);
 
             //Carga de ComboBox de Categorías
             comboCategoria.Items.Add("Tecnología");

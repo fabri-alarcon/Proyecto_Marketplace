@@ -26,8 +26,6 @@ namespace Proyecto_Marketplace
             usuarioActual = usuario ?? new Usuario("Invitado");
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = true;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new Size(800, 600);
 
